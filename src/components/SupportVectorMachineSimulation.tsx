@@ -20,11 +20,18 @@ const SupportVectorMachineSimulation = () => {
 
     const svmElements = useMemo(() => {
         if (!showSVM) return {};
-        // These are hard-coded for this specific data generation for simplicity
-        const hyperplane = [{x: 0, y: 4}, {x: 4, y: 0}];
-        const margin1 = [{x: 0, y: 5}, {x: 5, y: 0}];
-        const margin2 = [{x: 0, y: 3}, {x: 3, y: 0}];
-        const supportVectors = data.filter(d => (d.x + d.y > 2.8 && d.x + d.y < 3.2) || (d.x + d.y > 4.8 && d.x + d.y < 5.2));
+        // The hyperplane should be exactly in the middle of the two classes.
+        const hyperplane = [{x: 0, y: 4.5}, {x: 4.5, y: 0}];
+        // The margins are the boundaries for each class.
+        const margin1 = [{x: 0, y: 5}, {x: 5, y: 0}]; // Margin for class 1
+        const margin2 = [{x: 0, y: 4}, {x: 4, y: 0}]; // Margin for class 0
+        
+        // Support vectors are the data points that are closest to the hyperplane.
+        const supportVectors = data.filter(d => 
+            (d.label === 0 && d.x + d.y > 3.8) || // Class 0 points near its margin
+            (d.label === 1 && d.x + d.y < 5.2)    // Class 1 points near its margin
+        );
+
         return { hyperplane, margin1, margin2, supportVectors };
     }, [showSVM, data]);
     
