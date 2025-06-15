@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -16,6 +17,10 @@ import StandardDeviationSimulation from '@/components/StandardDeviationSimulatio
 import PValueSimulation from '@/components/PValueSimulation';
 import TypeErrorsSimulation from '@/components/TypeErrorsSimulation';
 import LawOfLargeNumbersSimulation from '@/components/LawOfLargeNumbersSimulation';
+import AnovaSimulation from '@/components/AnovaSimulation';
+import ChiSquaredTestSimulation from '@/components/ChiSquaredTestSimulation';
+import BayesianVsFrequentistSimulation from '@/components/BayesianVsFrequentistSimulation';
+import PCASimulation from '@/components/PCASimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -175,6 +180,46 @@ const ConceptPage = () => {
             </div>
             <StandardDeviationSimulation />
           </section>
+        )}
+
+        {concept.id === 'anova' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Bestial" look at ANOVA</p>
+                </div>
+                <AnovaSimulation />
+            </section>
+        )}
+
+        {concept.id === 'chi-squared-test' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Cartographical" look at the Chi-Squared Test</p>
+                </div>
+                <ChiSquaredTestSimulation />
+            </section>
+        )}
+
+        {concept.id === 'bayesian-vs-frequentist' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">An "Oracular" look at Bayesian vs. Frequentist methods</p>
+                </div>
+                <BayesianVsFrequentistSimulation />
+            </section>
+        )}
+
+        {concept.id === 'dimensionality-reduction' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Drifting" look at Dimensionality Reduction (PCA)</p>
+                </div>
+                <PCASimulation />
+            </section>
         )}
       </main>
       <footer className="py-6 border-t mt-12">
