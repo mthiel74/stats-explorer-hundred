@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
@@ -50,6 +49,10 @@ import ConvolutionalNeuralNetworkSimulation from './ConvolutionalNeuralNetworkSi
 import ArtificialNeuralNetworkSimulation from './ArtificialNeuralNetworkSimulation';
 import RecurrentNeuralNetworkSimulation from './RecurrentNeuralNetworkSimulation';
 import DeepLearningSimulation from './DeepLearningSimulation';
+import NLPSimulation from './NLPSimulation';
+import BagOfWordsSimulation from './BagOfWordsSimulation';
+import TfIdfSimulation from './TfIdfSimulation';
+import WordEmbeddingSimulation from './WordEmbeddingSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -122,6 +125,13 @@ const simulationMap: Record<string, React.ComponentType> = {
     'recurrent-neural-network': RecurrentNeuralNetworkSimulation,
     'rnn': RecurrentNeuralNetworkSimulation,
     'deep-learning': DeepLearningSimulation,
+    'natural-language-processing': NLPSimulation,
+    'nlp': NLPSimulation,
+    'bag-of-words-model': BagOfWordsSimulation,
+    'bag-of-words': BagOfWordsSimulation,
+    'tf-idf': TfIdfSimulation,
+    'word-embedding': WordEmbeddingSimulation,
+    'word-embeddings': WordEmbeddingSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (

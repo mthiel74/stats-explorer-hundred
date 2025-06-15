@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,7 @@ const initialInput = [
   [0, 0, 0, 1, 0, 0, 0],
   [0, 0, 0, 1, 0, 0, 0],
   [0, 0, 0, 1, 0, 0, 0],
-  [0, 0, 0, 1, 0, 0, 0],
+  [1, 1, 1, 1, 1, 1, 1],
   [0, 0, 0, 1, 0, 0, 0],
   [0, 0, 0, 1, 0, 0, 0],
   [0, 0, 0, 1, 0, 0, 0],
