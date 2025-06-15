@@ -121,6 +121,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'linear-regression': RegressionAnalysisSimulation,
     'logistic-regression': LogisticRegressionSimulation,
     'confidence-intervals': ConfidenceIntervalsSimulation,
+    'confidence-interval': ConfidenceIntervalsSimulation,
     'bootstrapping': BootstrappingSimulation,
     'bayesian-inference': BayesianInferenceSimulation,
     'ab-testing': ABTestingSimulation,
