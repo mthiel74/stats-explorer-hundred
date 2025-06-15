@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -21,6 +20,10 @@ import AnovaSimulation from '@/components/AnovaSimulation';
 import ChiSquaredTestSimulation from '@/components/ChiSquaredTestSimulation';
 import BayesianVsFrequentistSimulation from '@/components/BayesianVsFrequentistSimulation';
 import PCASimulation from '@/components/PCASimulation';
+import KMeansClusteringSimulation from '@/components/KMeansClusteringSimulation';
+import DecisionTreesSimulation from '@/components/DecisionTreesSimulation';
+import NaiveBayesSimulation from '@/components/NaiveBayesSimulation';
+import SupportVectorMachineSimulation from '@/components/SupportVectorMachineSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -219,6 +222,46 @@ const ConceptPage = () => {
                     <p className="text-muted-foreground">A "Drifting" look at Dimensionality Reduction (PCA)</p>
                 </div>
                 <PCASimulation />
+            </section>
+        )}
+
+        {concept.id === 'k-means-clustering' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Kingdom" view of K-Means Clustering</p>
+                </div>
+                <KMeansClusteringSimulation />
+            </section>
+        )}
+
+        {concept.id === 'decision-trees' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">An "Oracle's Grove" look at Decision Trees</p>
+                </div>
+                <DecisionTreesSimulation />
+            </section>
+        )}
+
+        {concept.id === 'naive-bayes' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Scribe's Filter" for Naive Bayes</p>
+                </div>
+                <NaiveBayesSimulation />
+            </section>
+        )}
+
+        {concept.id === 'svm' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Guardian's Blade" view of Support Vector Machines</p>
+                </div>
+                <SupportVectorMachineSimulation />
             </section>
         )}
       </main>
