@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -10,6 +9,9 @@ import MaximumLikelihoodEstimationSimulation from '@/components/MaximumLikelihoo
 import RegressionAnalysisSimulation from '@/components/RegressionAnalysisSimulation';
 import ConfidenceIntervalsSimulation from '@/components/ConfidenceIntervalsSimulation';
 import BootstrappingSimulation from '@/components/BootstrappingSimulation';
+import BayesianInferenceSimulation from '@/components/BayesianInferenceSimulation';
+import ABTestingSimulation from '@/components/ABTestingSimulation';
+import MCMCSimulation from '@/components/MCMCSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -99,6 +101,36 @@ const ConceptPage = () => {
             </div>
             <BootstrappingSimulation />
           </section>
+        )}
+
+        {concept.id === 'bayesian-inference' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">A "Mystical" look at Bayesian Inference</p>
+            </div>
+            <BayesianInferenceSimulation />
+          </section>
+        )}
+
+        {concept.id === 'ab-testing' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">An "Alchemical" look at A/B Testing</p>
+            </div>
+            <ABTestingSimulation />
+          </section>
+        )}
+        
+        {concept.id === 'mcmc-methods' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Cryptid" look at MCMC</p>
+                </div>
+                <MCMCSimulation />
+            </section>
         )}
       </main>
       <footer className="py-6 border-t mt-12">
