@@ -94,6 +94,12 @@ import PointBiserialCorrelationSimulation from './PointBiserialCorrelationSimula
 import RobustStatisticsSimulation from './RobustStatisticsSimulation';
 import WinsorizingSimulation from './WinsorizingSimulation';
 import TrimmingSimulation from './TrimmingSimulation';
+import SurvivalFunctionSimulation from './SurvivalFunctionSimulation';
+import HazardFunctionSimulation from './HazardFunctionSimulation';
+import ProportionalHazardsModelSimulation from './ProportionalHazardsModelSimulation';
+import PropensityScoreMatchingSimulation from './PropensityScoreMatchingSimulation';
+import InstrumentalVariableSimulation from './InstrumentalVariableSimulation';
+import DifferenceInDifferencesSimulation from './DifferenceInDifferencesSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -208,6 +214,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'non-parametric-statistics': ParametricVsNonParametricSimulation,
     'parametric-statistics': ParametricVsNonParametricSimulation,
     'likelihood-ratio-test': LikelihoodRatioTestSimulation,
+    'model-selection-criteria': ModelSelectionCriteriaSimulation,
     'aic': ModelSelectionCriteriaSimulation,
     'bic': ModelSelectionCriteriaSimulation,
     'multicollinearity': MulticollinearitySimulation,
@@ -220,6 +227,13 @@ const simulationMap: Record<string, React.ComponentType> = {
     'winsorizing': WinsorizingSimulation,
     'trimming': TrimmingSimulation,
     'truncating': TrimmingSimulation,
+    'survival-function': SurvivalFunctionSimulation,
+    'hazard-function': HazardFunctionSimulation,
+    'proportional-hazards-model': ProportionalHazardsModelSimulation,
+    'propensity-score-matching': PropensityScoreMatchingSimulation,
+    'instrumental-variable': InstrumentalVariableSimulation,
+    'difference-in-differences': DifferenceInDifferencesSimulation,
+    'did': DifferenceInDifferencesSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
