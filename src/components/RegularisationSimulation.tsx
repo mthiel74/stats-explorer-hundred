@@ -1,17 +1,17 @@
-import React, { useState, useMemo } from 'react';
+
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { ScatterChart, Scatter, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { TrendingUp, TrendingDown, RefreshCw } from 'lucide-react';
+import { RefreshCw, Scale } from 'lucide-react';
 
-// Moved outside the component to prevent re-creation on each render and fix infinite loop.
-const trueFunction = (x: number) => Math.sin(x) * 3 + 5;
+const trueFunction = (x: number) => Math.sin(x) * 3 + 5 + x * 0.5;
 
 const fitPolynomial = (data: {x:number, y:number}[], degree: number) => {
     // This is a massive simplification for visualization purposes, not a real polyfit algorithm.
-    if (degree === 1) { // Linear regression approximation
+    if (degree <= 1) { // Linear regression approximation
         const n = data.length;
         if (n === 0) return () => 0;
         const sumX = data.reduce((s, p) => s + p.x, 0);
@@ -64,87 +64,71 @@ const fitPolynomial = (data: {x:number, y:number}[], degree: number) => {
     };
 };
 
-const OverfittingUnderfittingSimulation = () => {
-    const [degree, setDegree] = useState(1);
-    const [noiseLevel, setNoiseLevel] = useState(3);
-    const [data, setData] = useState<{x: number, y: number}[]>([]);
+const RegularisationSimulation = () => {
+    const [degree] = useState(15); // Start with a complex model
+    const [lambda, setLambda] = useState(0); // Regularization strength
+    const [noiseLevel] = useState(3);
+    const [data, setData] = useState<{ x: number, y: number }[]>([]);
 
-    const generateData = React.useCallback(() => {
+    const generateData = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             const x = Math.random() * 10;
             const y = trueFunction(x) + (Math.random() - 0.5) * noiseLevel * 2;
             newData.push({ x, y });
         }
-        setData(newData);
+        setData(newData.sort((a,b) => a.x - b.x));
     }, [noiseLevel]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         generateData();
     }, [generateData]);
 
-    const fittedFunction = useMemo(() => fitPolynomial(data, degree), [data, degree]);
+    const effectiveDegree = useMemo(() => Math.max(1, degree - Math.floor(lambda)), [degree, lambda]);
+
+    const fittedFunction = useMemo(() => fitPolynomial(data, effectiveDegree), [data, effectiveDegree]);
 
     const chartData = useMemo(() => {
         const points = [];
         for (let i = 0; i <= 100; i++) {
             const x = i / 10;
-            points.push({
-                x,
-                true: trueFunction(x),
-                fitted: fittedFunction(x)
-            });
+            points.push({ x, true: trueFunction(x), fitted: fittedFunction(x) });
         }
         return points;
     }, [fittedFunction]);
-    
-    const getModelStatus = () => {
-        if(degree < 3) return { text: 'Underfitting', color: 'text-amber-500', Icon: TrendingDown };
-        if(degree > 7) return { text: 'Overfitting', color: 'text-red-500', Icon: TrendingUp };
-        return { text: 'Good Fit', color: 'text-green-500', Icon: TrendingUp };
-    }
-    const ModelStatus = getModelStatus();
 
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="flex items-center gap-2">Overfitting & Underfitting</CardTitle>
+                <CardTitle className="flex items-center gap-2"><Scale /> Regularization Demo</CardTitle>
                 <CardDescription>
-                    Adjust the model complexity (polynomial degree) to see how it affects the fit to the data.
+                    Regularization adds a penalty to model complexity to prevent overfitting. Increase the regularization strength (lambda) to see how it simplifies the complex model.
                 </CardDescription>
             </CardHeader>
             <CardContent className="grid lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-1 space-y-6">
-                     <div className="space-y-2">
-                        <Label htmlFor="degree">Model Complexity (Degree: {degree})</Label>
-                        <Slider id="degree" value={[degree]} onValueChange={([val]) => setDegree(val)} min={1} max={15} step={1} />
-                        <p className="text-xs text-muted-foreground">Low degree may underfit, high degree may overfit.</p>
+                    <div className="space-y-2">
+                        <Label>Model Complexity (Degree: {degree})</Label>
+                        <p className="text-xs text-muted-foreground">High degree model is prone to overfitting.</p>
                     </div>
                      <div className="space-y-2">
-                        <Label htmlFor="noise">Data Noise Level ({noiseLevel.toFixed(1)})</Label>
-                        <Slider id="noise" value={[noiseLevel]} onValueChange={([val]) => setNoiseLevel(val)} min={0} max={10} step={0.5} />
+                        <Label htmlFor="lambda">Regularization Strength (λ): {lambda.toFixed(1)}</Label>
+                        <Slider id="lambda" value={[lambda]} onValueChange={([val]) => setLambda(val)} min={0} max={14} step={0.5} />
+                        <p className="text-xs text-muted-foreground">Effective degree after regularization: {effectiveDegree}</p>
                     </div>
                     <Button onClick={generateData} className="w-full"><RefreshCw /> New Data Sample</Button>
-                    <Card>
-                       <CardContent className="pt-6 text-center">
-                           <p className="text-sm text-muted-foreground">Model Status</p>
-                           <p className={`text-2xl font-bold flex items-center justify-center gap-2 ${ModelStatus.color}`}>
-                               <ModelStatus.Icon /> {ModelStatus.text}
-                           </p>
-                       </CardContent>
-                    </Card>
                 </div>
                 <div className="lg:col-span-2 min-h-[400px]">
                     <ResponsiveContainer width="100%" height={400}>
                        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                             <CartesianGrid />
                             <XAxis type="number" dataKey="x" name="Feature" domain={[0, 10]} />
-                            <YAxis type="number" name="Target" domain={[0, 10]} />
+                            <YAxis type="number" name="Target" domain={[0, 15]} />
                             <Tooltip />
                             <Legend />
                             <Scatter name="Sample Data" data={data} fill="hsl(var(--primary))" />
                             <Line dataKey="true" data={chartData} dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
-                            <Line dataKey="fitted" data={chartData} dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
+                            <Line dataKey="fitted" data={chartData} dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model (Regularized)" />
                        </ScatterChart>
                     </ResponsiveContainer>
                 </div>
@@ -153,4 +137,4 @@ const OverfittingUnderfittingSimulation = () => {
     );
 };
 
-export default OverfittingUnderfittingSimulation;
+export default RegularisationSimulation;

@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -43,6 +42,9 @@ import CovarianceSimulation from '@/components/CovarianceSimulation';
 import BayesTheoremSimulation from '@/components/BayesTheoremSimulation';
 import CrossValidationSimulation from '@/components/CrossValidationSimulation';
 import OverfittingUnderfittingSimulation from '@/components/OverfittingUnderfittingSimulation';
+import RegularisationSimulation from '@/components/RegularisationSimulation';
+import HierarchicalClusteringSimulation from '@/components/HierarchicalClusteringSimulation';
+import DBSCANSimulation from '@/components/DBSCANSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -351,6 +353,27 @@ const ConceptPage = () => {
                   <section>
                     <SimulationHeader title="Interactive Simulation" subtitle="Exploring Overfitting and Underfitting" />
                     <OverfittingUnderfittingSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'regularisation' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Regularisation" />
+                    <RegularisationSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'hierarchical-clustering' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Hierarchical Clustering" />
+                    <HierarchicalClusteringSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'dbscan' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring DBSCAN Clustering" />
+                    <DBSCANSimulation />
                   </section>
                 )}
             </div>
