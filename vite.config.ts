@@ -12,6 +12,8 @@ export default defineConfig(({ mode }) => ({
     watch: {
       // Explicitly ignore node_modules to prevent EMFILE errors on some systems
       ignored: ["**/node_modules/**"],
+      // Use polling to prevent file watcher errors in some environments
+      usePolling: true,
     },
   },
   plugins: [
