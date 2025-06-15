@@ -5,29 +5,6 @@ import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { ResponsiveContainer, ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
 
-const CustomBoxPlot = (props: any) => {
-    const { payload } = props;
-    if (!payload || !payload.length) return null;
-    const { value: data, color } = payload[0];
-    if(!data) return null;
-    const sortedData = [...data].sort((a,b) => a-b);
-    const q1 = sortedData[Math.floor(sortedData.length / 4)];
-    const median = sortedData[Math.floor(sortedData.length / 2)];
-    const q3 = sortedData[Math.floor(sortedData.length * 3/4)];
-    const min = sortedData[0];
-    const max = sortedData[sortedData.length - 1];
-    return (
-        <div className="p-2 bg-background/80 border rounded-md shadow-lg">
-            <p style={{color}}>{payload[0].name}</p>
-            <p>Max: {max.toFixed(2)}</p>
-            <p>Q3: {q3.toFixed(2)}</p>
-            <p>Median: {median.toFixed(2)}</p>
-            <p>Q1: {q1.toFixed(2)}</p>
-            <p>Min: {min.toFixed(2)}</p>
-        </div>
-    )
-};
-
 const LevenesTestSimulation = () => {
     const [stdDev1, setStdDev1] = useState(1);
     const [stdDev2, setStdDev2] = useState(1);
@@ -69,9 +46,9 @@ const LevenesTestSimulation = () => {
         const p = f > 3.0 ? 0.049 : 0.6; // 3.0 is approx F critical for df(2, ~150)
 
         const chartData = [
-            { name: 'Group A', values: g1 },
-            { name: 'Group B', values: g2 },
-            { name: 'Group C', values: g3 },
+            ...g1.map(v => ({ group: 'Group A', value: v })),
+            ...g2.map(v => ({ group: 'Group B', value: v })),
+            ...g3.map(v => ({ group: 'Group C', value: v })),
         ];
         
         return { data: chartData, fStat: f, pValue: p };
@@ -98,12 +75,12 @@ const LevenesTestSimulation = () => {
                         <ResponsiveContainer width="100%" height={300}>
                             <ScatterChart>
                                 <CartesianGrid />
-                                <XAxis dataKey="name" type="category" />
-                                <YAxis type="number" />
-                                <Tooltip content={<CustomBoxPlot />} />
-                                <Scatter name="Group A" data={[{name: 'Group A', value: data[0].values}]} fill="#8884d8" shape="star" />
-                                <Scatter name="Group B" data={[{name: 'Group B', value: data[1].values}]} fill="#82ca9d" shape="triangle"/>
-                                <Scatter name="Group C" data={[{name: 'Group C', value: data[2].values}]} fill="#ffc658" shape="cross"/>
+                                <XAxis dataKey="group" type="category" name="Group" />
+                                <YAxis dataKey="value" type="number" name="Value" />
+                                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                                <Scatter name="Group A" data={data.filter(p => p.group === 'Group A')} fill="#8884d8" />
+                                <Scatter name="Group B" data={data.filter(p => p.group === 'Group B')} fill="#82ca9d" />
+                                <Scatter name="Group C" data={data.filter(p => p.group === 'Group C')} fill="#ffc658" />
                             </ScatterChart>
                         </ResponsiveContainer>
                          <div className="flex gap-4">

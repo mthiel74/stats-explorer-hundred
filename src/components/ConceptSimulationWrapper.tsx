@@ -63,6 +63,7 @@ import KruskalWallisTestSimulation from './KruskalWallisTestSimulation';
 import FriedmanTestSimulation from './FriedmanTestSimulation';
 import ShapiroWilkTestSimulation from './ShapiroWilkTestSimulation';
 import LevenesTestSimulation from './LevenesTestSimulation';
+import KolmogorovSmirnovTestSimulation from './KolmogorovSmirnovTestSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -153,6 +154,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'friedman-test': FriedmanTestSimulation,
     'shapiro-wilk-test': ShapiroWilkTestSimulation,
     'levenes-test': LevenesTestSimulation,
+    'kolmogorov-smirnov-test': KolmogorovSmirnovTestSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
