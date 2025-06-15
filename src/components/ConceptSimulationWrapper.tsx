@@ -100,6 +100,11 @@ import ProportionalHazardsModelSimulation from './ProportionalHazardsModelSimula
 import PropensityScoreMatchingSimulation from './PropensityScoreMatchingSimulation';
 import InstrumentalVariableSimulation from './InstrumentalVariableSimulation';
 import DifferenceInDifferencesSimulation from './DifferenceInDifferencesSimulation';
+import RegressionDiscontinuitySimulation from './RegressionDiscontinuitySimulation';
+import MediationAnalysisSimulation from './MediationAnalysisSimulation';
+import ModerationAnalysisSimulation from './ModerationAnalysisSimulation';
+import StructuralEquationModellingSimulation from './StructuralEquationModellingSimulation';
+import PathAnalysisSimulation from './PathAnalysisSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -234,6 +239,11 @@ const simulationMap: Record<string, React.ComponentType> = {
     'instrumental-variable': InstrumentalVariableSimulation,
     'difference-in-differences': DifferenceInDifferencesSimulation,
     'did': DifferenceInDifferencesSimulation,
+    'regression-discontinuity-design': RegressionDiscontinuitySimulation,
+    'mediation-analysis': MediationAnalysisSimulation,
+    'moderation-analysis': ModerationAnalysisSimulation,
+    'structural-equation-modelling': StructuralEquationModellingSimulation,
+    'path-analysis': PathAnalysisSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
