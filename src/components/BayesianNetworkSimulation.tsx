@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { CloudRain, Sprinkler, Leaf, Check, X } from 'lucide-react';
+import { CloudRain, ShowerHead, Leaf, Check, X } from 'lucide-react';
 
 type Evidence = 'true' | 'false' | 'unknown';
 
@@ -94,7 +94,7 @@ const BayesianNetworkSimulation = () => {
                         </ToggleGroup>
                     </NodeCard>
 
-                    <NodeCard title="Sprinkler" icon={<Sprinkler className="w-8 h-8 text-cyan-500" />} active={sprinkler !== 'unknown'}>
+                    <NodeCard title="Sprinkler" icon={<ShowerHead className="w-8 h-8 text-cyan-500" />} active={sprinkler !== 'unknown'}>
                         <ToggleGroup type="single" value={sprinkler} onValueChange={(v: Evidence) => setSprinkler(v || 'unknown')}>
                             <ToggleGroupItem value="true" aria-label="Sprinkler True"><Check /></ToggleGroupItem>
                             <ToggleGroupItem value="false" aria-label="Sprinkler False"><X /></ToggleGroupItem>
