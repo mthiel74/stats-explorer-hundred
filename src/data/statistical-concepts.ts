@@ -288,5 +288,246 @@ It is used in various fields such as econometrics, signal processing, and weathe
     title: "Regularization",
     summary: "A technique used to prevent overfitting by adding a penalty term to the loss function.",
     description: `In mathematics, statistics, and computer science, particularly in machine learning and inverse problems, regularization is the process of adding information in order to solve an ill-posed problem or to prevent overfitting. This information is usually a penalty for complexity, such as restrictions for smoothness or bounds on the vector space norm. A common example is ridge regression, which penalizes the sum of squares of the regression coefficients.`
+  },
+  {
+    id: "k-means-clustering",
+    title: "K-Means Clustering",
+    summary: "A method of vector quantization that aims to partition n observations into k clusters.",
+    description: `K-means clustering is a method of vector quantization, originally from signal processing, that aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean (cluster centers or cluster centroid), serving as a prototype of the cluster. This results in a partitioning of the data space into Voronoi cells.`
+  },
+  {
+    id: "hierarchical-clustering",
+    title: "Hierarchical Clustering",
+    summary: "An alternative approach to k-means clustering that builds a hierarchy of clusters.",
+    description: `In data mining and statistics, hierarchical clustering is a method of cluster analysis which seeks to build a hierarchy of clusters. Strategies for hierarchical clustering fall into two types: Agglomerative (bottom-up) and Divisive (top-down).`
+  },
+  {
+    id: "dbscan",
+    title: "DBSCAN",
+    summary: "A density-based clustering algorithm.",
+    description: `Density-based spatial clustering of applications with noise (DBSCAN) is a data clustering algorithm proposed by Martin Ester, Hans-Peter Kriegel, Jörg Sander and Xiaowei Xu in 1996. It is a density-based clustering non-parametric algorithm: given a set of points in some space, it groups together points that are closely packed together, marking as outliers points that lie alone in low-density regions.`
+  },
+  {
+    id: "support-vector-machines",
+    title: "Support Vector Machines (SVM)",
+    summary: "Supervised learning models that analyze data for classification and regression analysis.",
+    description: `In machine learning, support-vector machines are supervised learning models with associated learning algorithms that analyze data for classification and regression analysis. Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that assigns new examples to one category or the other, making it a non-probabilistic binary linear classifier.`
+  },
+  {
+    id: "naive-bayes-classifier",
+    title: "Naive Bayes Classifier",
+    summary: "A family of simple probabilistic classifiers based on applying Bayes' theorem.",
+    description: `A naive Bayes classifier is a simple probabilistic classifier based on applying Bayes' theorem with strong (naive) independence assumptions between the features. They are among the simplest Bayesian network models, but coupled with kernel density estimation, they can achieve higher accuracy levels.`
+  },
+  {
+    id: "random-forest",
+    title: "Random Forest",
+    summary: "An ensemble learning method for classification, regression and other tasks.",
+    description: `Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operate by constructing a multitude of decision trees at training time. For classification tasks, the output of the random forest is the class selected by most trees.`
+  },
+  {
+    id: "gradient-boosting",
+    title: "Gradient Boosting",
+    summary: "A machine learning technique which produces a prediction model in the form of an ensemble of weak prediction models.",
+    description: `Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function.`
+  },
+  {
+    id: "dimensionality-reduction",
+    title: "Dimensionality Reduction",
+    summary: "The process of reducing the number of random variables under consideration.",
+    description: `Dimensionality reduction, or dimension reduction, is the transformation of data from a high-dimensional space into a low-dimensional space so that the low-dimensional representation retains some meaningful properties of the original data, ideally close to its intrinsic dimension.`
+  },
+  {
+    id: "feature-engineering",
+    title: "Feature Engineering",
+    summary: "The process of using domain knowledge to extract features from raw data.",
+    description: `Feature engineering is the process of using domain knowledge to extract features (characteristics, properties, attributes) from raw data. The motivation is to use these extra features to improve the quality of results from a machine learning process, compared with supplying only the raw data to the machine learning process.`
+  },
+  {
+    id: "ensemble-learning",
+    title: "Ensemble Learning",
+    summary: "A machine learning paradigm where multiple models are trained to solve the same problem.",
+    description: `In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms alone. Unlike a statistical ensemble in statistical mechanics, which is usually infinite, a machine learning ensemble refers to only a concrete finite set of alternative models, but typically allows for much more flexible structure to exist among those alternatives.`
+  },
+  {
+    id: "supervised-learning",
+    title: "Supervised Learning",
+    summary: "A type of machine learning where the algorithm learns on a labeled dataset.",
+    description: `Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).`
+  },
+  {
+    id: "unsupervised-learning",
+    title: "Unsupervised Learning",
+    summary: "A type of machine learning where the algorithm learns from unlabeled data.",
+    description: `Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. In contrast to supervised learning that usually makes use of human-labeled data, unsupervised learning, also known as self-organization, allows for modeling of probability densities over inputs.`
+  },
+  {
+    id: "reinforcement-learning",
+    title: "Reinforcement Learning",
+    summary: "An area of machine learning concerned with how intelligent agents ought to take actions in an environment.",
+    description: `Reinforcement learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Reinforcement learning is one of three basic machine learning paradigms, alongside supervised learning and unsupervised learning.`
+  },
+  {
+    id: "deep-learning",
+    title: "Deep Learning",
+    summary: "Part of a broader family of machine learning methods based on artificial neural networks.",
+    description: `Deep learning is part of a broader family of machine learning methods based on artificial neural networks with representation learning. The adjective "deep" in deep learning refers to the use of multiple layers in the network. Methods used can be either supervised, semi-supervised or unsupervised.`
+  },
+  {
+    id: "artificial-neural-network",
+    title: "Artificial Neural Network (ANN)",
+    summary: "Computing systems inspired by the biological neural networks that constitute animal brains.",
+    description: `Artificial neural networks (ANNs), usually simply called neural networks (NNs), are computing systems inspired by the biological neural networks that constitute animal brains. An ANN is based on a collection of connected units or nodes called artificial neurons, which loosely model the neurons in a biological brain.`
+  },
+  {
+    id: "convolutional-neural-network",
+    title: "Convolutional Neural Network (CNN)",
+    summary: "A class of deep neural networks, most commonly applied to analyzing visual imagery.",
+    description: `In deep learning, a convolutional neural network (CNN, or ConvNet) is a class of artificial neural network, most commonly applied to analyze visual imagery. They have applications in image and video recognition, recommender systems, image classification, medical image analysis, natural language processing, and financial time series.`
+  },
+  {
+    id: "recurrent-neural-network",
+    title: "Recurrent Neural Network (RNN)",
+    summary: "A class of artificial neural networks where connections between nodes form a directed graph along a temporal sequence.",
+    description: `A recurrent neural network (RNN) is a class of artificial neural networks where connections between nodes form a directed or undirected graph along a temporal sequence. This allows it to exhibit temporal dynamic behavior. Derived from feedforward neural networks, RNNs can use their internal state (memory) to process variable length sequences of inputs.`
+  },
+  {
+    id: "natural-language-processing",
+    title: "Natural Language Processing (NLP)",
+    summary: "A subfield of AI concerned with the interactions between computers and human language.",
+    description: `Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data.`
+  },
+  {
+    id: "bag-of-words-model",
+    title: "Bag-of-words Model",
+    summary: "A simplifying representation used in natural language processing and information retrieval.",
+    description: `The bag-of-words model is a simplifying representation used in natural language processing and information retrieval (IR). In this model, a text (such as a sentence or a document) is represented as the bag (multiset) of its words, disregarding grammar and even word order but keeping multiplicity.`
+  },
+  {
+    id: "tf-idf",
+    title: "TF-IDF",
+    summary: "A numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.",
+    description: `In information retrieval, tf–idf (also TF*IDF, TF-IDF, TFIDF, TF/IDF, or Tf-idf), short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus. It is often used as a weighting factor in searches of information retrieval, text mining, and user modeling.`
+  },
+  {
+    id: "word-embedding",
+    title: "Word Embedding",
+    summary: "A term used for the representation of words for text analysis, typically in the form of a real-valued vector.",
+    description: `Word embedding is the collective name for a set of language modeling and feature learning techniques in natural language processing where words or phrases from the vocabulary are mapped to vectors of real numbers. Conceptually it involves a mathematical embedding from a space with many dimensions per word to a continuous vector space with a much lower dimension.`
+  },
+  {
+    id: "auc-roc-curve",
+    title: "AUC-ROC Curve",
+    summary: "A performance measurement for classification problem at various thresholds settings.",
+    description: `In statistics, a receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied. The AUC (Area Under the ROC Curve) provides an aggregate measure of performance across all possible classification thresholds.`
+  },
+  {
+    id: "confusion-matrix",
+    title: "Confusion Matrix",
+    summary: "A table used to describe the performance of a classification model on a set of test data.",
+    description: `In the field of machine learning and specifically the problem of statistical classification, a confusion matrix, also known as an error matrix, is a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one. Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class, or vice versa.`
+  },
+  {
+    id: "precision-and-recall",
+    title: "Precision and Recall",
+    summary: "Metrics for classification tasks.",
+    description: `Precision and recall are two important metrics used to evaluate the performance of a classification model. Precision (also called positive predictive value) is the fraction of relevant instances among the retrieved instances, while recall (also known as sensitivity) is the fraction of relevant instances that were retrieved.`
+  },
+  {
+    id: "f1-score",
+    title: "F1 Score",
+    summary: "The harmonic mean of precision and recall.",
+    description: `In statistical analysis of binary classification, the F-score or F-measure is a measure of a test's accuracy. It is calculated from the precision and recall of the test, where the precision is the number of true positive results divided by the number of all positive results, including those not identified correctly, and the recall is the number of true positive results divided by the number of all samples that should have been identified as positive.`
+  },
+  {
+    id: "bias-variance-tradeoff",
+    title: "Bias-Variance Tradeoff",
+    summary: "A central problem in supervised learning.",
+    description: `The bias–variance tradeoff is the property of a set of predictive models whereby models with a lower bias in parameter estimation have a higher variance of the parameter estimates across samples, and vice versa. The bias–variance dilemma or problem is the conflict in trying to simultaneously minimize these two sources of error that prevent supervised learning algorithms from generalizing beyond their training set.`
+  },
+  {
+    id: "kolmogorov-smirnov-test",
+    title: "Kolmogorov-Smirnov Test",
+    summary: "A nonparametric test of the equality of continuous, one-dimensional probability distributions.",
+    description: `The Kolmogorov–Smirnov test (K–S test or KS test) is a nonparametric test of the equality of continuous, one-dimensional probability distributions that can be used to compare a sample with a reference probability distribution (one-sample K–S test), or to compare two samples (two-sample K–S test).`
+  },
+  {
+    id: "mann-whitney-u-test",
+    title: "Mann-Whitney U Test",
+    summary: "A nonparametric test of the null hypothesis that two samples come from the same population.",
+    description: `The Mann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney test) is a nonparametric test of the null hypothesis that, for randomly selected values X and Y from two populations, the probability of X being greater than Y is equal to the probability of Y being greater than X.`
+  },
+  {
+    id: "wilcoxon-signed-rank-test",
+    title: "Wilcoxon Signed-Rank Test",
+    summary: "A non-parametric statistical hypothesis test used to compare two related samples.",
+    description: `The Wilcoxon signed-rank test is a non-parametric statistical hypothesis test used either to test the location of a population based on a sample of data, or to compare the locations of two populations using a paired sample.`
+  },
+  {
+    id: "spearmans-rank-correlation",
+    title: "Spearman's Rank Correlation",
+    summary: "A nonparametric measure of rank correlation.",
+    description: `In statistics, Spearman's rank correlation coefficient or Spearman's ρ, named after Charles Spearman and often denoted by the Greek letter ρ (rho) or as rs, is a nonparametric measure of rank correlation (statistical dependence between the rankings of two variables).`
+  },
+  {
+    id: "kendalls-tau",
+    title: "Kendall's Tau",
+    summary: "A statistic used to measure the ordinal association between two measured quantities.",
+    description: `In statistics, the Kendall rank correlation coefficient, commonly referred to as Kendall's τ coefficient (after the Greek letter τ, tau), is a statistic used to measure the ordinal association between two measured quantities. A τ test is a non-parametric hypothesis test for statistical dependence based on the τ coefficient.`
+  },
+  {
+    id: "kruskal-wallis-test",
+    title: "Kruskal-Wallis Test",
+    summary: "A non-parametric method for testing whether samples originate from the same distribution.",
+    description: `The Kruskal–Wallis test by ranks, Kruskal–Wallis H test, or one-way ANOVA on ranks is a non-parametric method for testing whether samples originate from the same distribution. It is used for comparing two or more independent samples of equal or different sample sizes.`
+  },
+  {
+    id: "friedman-test",
+    title: "Friedman Test",
+    summary: "A non-parametric statistical test used to detect differences in treatments across multiple test attempts.",
+    description: `The Friedman test is a non-parametric statistical test developed by Milton Friedman. Similar to the parametric repeated measures ANOVA, it is used to detect differences in treatments across multiple test attempts.`
+  },
+  {
+    id: "shapiro-wilk-test",
+    title: "Shapiro-Wilk Test",
+    summary: "A test of normality in frequentist statistics.",
+    description: `The Shapiro–Wilk test is a test of normality in frequentist statistics. It was published in 1965 by Samuel Sanford Shapiro and Martin Wilk.`
+  },
+  {
+    id: "levenes-test",
+    title: "Levene's Test",
+    summary: "An inferential statistic used to assess the equality of variances for a variable.",
+    description: `In statistics, Levene's test is an inferential statistic used to assess the equality of variances for a variable calculated for two or more groups. Some common statistical procedures assume that variances of the populations from which different samples are drawn are equal.`
+  },
+  {
+    id: "bartletts-test",
+    title: "Bartlett's Test",
+    summary: "Used to test if multiple samples are from populations with equal variances.",
+    description: `In statistics, Bartlett's test, named after Maurice Stevenson Bartlett, is used to test homoscedasticity, that is, if multiple samples are from populations with equal variances.`
+  },
+  {
+    id: "outlier-detection",
+    title: "Outlier Detection",
+    summary: "The identification of rare items, events or observations which raise suspicions.",
+    description: `In data mining, anomaly detection (also outlier detection) is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data. Typically the anomalous items will translate to some kind of problem such as bank fraud, a structural defect, medical problems or errors in a text.`
+  },
+  {
+    id: "imputation",
+    title: "Imputation",
+    summary: "The process of replacing missing data with substituted values.",
+    description: `In statistics, imputation is the process of replacing missing data with substituted values. When substituting for a data point, it is known as "unit imputation"; when substituting for a component of a data point, it is known as "item imputation".`
+  },
+  {
+    id: "data-cleansing",
+    title: "Data Cleansing",
+    summary: "The process of detecting and correcting corrupt or inaccurate records from a record set.",
+    description: `Data cleansing or data cleaning is the process of detecting and correcting (or removing) corrupt or inaccurate records from a record set, table, or database and refers to identifying incomplete, incorrect, inaccurate or irrelevant parts of the data and then replacing, modifying, or deleting the dirty or coarse data.`
+  },
+  {
+    id: "etl",
+    title: "ETL (Extract, Transform, Load)",
+    summary: "A type of data integration used to blend data from multiple sources.",
+    description: `In computing, extract, transform, load (ETL) is a three-phase data integration process in which data is extracted from a source system, transformed into a different format, and then loaded into a data warehousing system. The ETL process is often used to prepare data for analysis and business intelligence applications.`
   }
 ];
+
