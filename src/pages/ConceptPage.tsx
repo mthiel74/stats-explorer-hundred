@@ -32,6 +32,10 @@ import LogisticRegressionSimulation from '@/components/LogisticRegressionSimulat
 import MachineLearningSimulation from '@/components/MachineLearningSimulation';
 import SamplingSimulation from '@/components/SamplingSimulation';
 import FactorAnalysisSimulation from '@/components/FactorAnalysisSimulation';
+import SurvivalAnalysisSimulation from '@/components/SurvivalAnalysisSimulation';
+import ZScoreSimulation from '@/components/ZScoreSimulation';
+import TTestSimulation from '@/components/TTestSimulation';
+import FTestSimulation from '@/components/FTestSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -189,7 +193,7 @@ const ConceptPage = () => {
                     </section>
                 )}
 
-                {(concept.id === 'dimensionality-reduction' || concept.id === 'pca') && (
+                {(concept.id === 'dimensionality-reduction' || concept.id === 'pca' || concept.id === 'principal-component-analysis') && (
                     <section>
                         <SimulationHeader title="Interactive Simulation" subtitle="A 'Drifting' look at Dimensionality Reduction (PCA)" />
                         <PCASimulation />
@@ -203,7 +207,7 @@ const ConceptPage = () => {
                     </section>
                 )}
 
-                {concept.id === 'decision-tree' && (
+                {(concept.id === 'decision-tree' || concept.id === 'decision-trees') && (
                     <section>
                         <SimulationHeader title="Interactive Simulation" subtitle="An 'Oracle's Grove' look at Decision Trees" />
                         <DecisionTreesSimulation />
@@ -245,7 +249,7 @@ const ConceptPage = () => {
                     </section>
                 )}
 
-                {concept.id === 'data-visualisation' && (
+                {(concept.id === 'data-visualisation' || concept.id === 'data-visualization') && (
                     <section>
                         <SimulationHeader title="Interactive Simulation" subtitle="The Scryer's Easel (Data Visualisation)" />
                         <DataVisualisationSimulation />
@@ -264,6 +268,34 @@ const ConceptPage = () => {
                         <SimulationHeader title="Interactive Simulation" subtitle="The Alchemist's Essence (Factor Analysis)" />
                         <FactorAnalysisSimulation />
                     </section>
+                )}
+
+                {concept.id === 'survival-analysis' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Timeless' look at Survival Analysis" />
+                    <SurvivalAnalysisSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'z-score' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Standardized' look at Z-Scores" />
+                    <ZScoreSimulation />
+                  </section>
+                )}
+
+                {concept.id === 't-test' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Comparative' look at the T-Test" />
+                    <TTestSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'f-test' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Variance' view on the F-Test" />
+                    <FTestSimulation />
+                  </section>
                 )}
             </div>
           </CardContent>
