@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -5,6 +6,8 @@ import NotFound from './NotFound';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
 import HypothesisTestingSimulation from '@/components/HypothesisTestingSimulation';
+import MaximumLikelihoodEstimationSimulation from '@/components/MaximumLikelihoodEstimationSimulation';
+import RegressionAnalysisSimulation from '@/components/RegressionAnalysisSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -53,6 +56,26 @@ const ConceptPage = () => {
               <p className="text-muted-foreground">An "Animalistic" look at Hypothesis Testing</p>
             </div>
             <HypothesisTestingSimulation />
+          </section>
+        )}
+
+        {concept.id === 'maximum-likelihood-estimation' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">An "Animalistic" look at Maximum Likelihood Estimation</p>
+            </div>
+            <MaximumLikelihoodEstimationSimulation />
+          </section>
+        )}
+
+        {concept.id === 'regression-analysis' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">An "Animalistic" look at Regression Analysis</p>
+            </div>
+            <RegressionAnalysisSimulation />
           </section>
         )}
       </main>
