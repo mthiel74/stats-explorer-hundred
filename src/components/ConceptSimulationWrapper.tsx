@@ -1,3 +1,4 @@
+
 import React from 'react';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
@@ -56,6 +57,12 @@ import WordEmbeddingSimulation from './WordEmbeddingSimulation';
 import AUCRocCurveSimulation from './AUCRocCurveSimulation';
 import ClassificationMetricsSimulation from './ClassificationMetricsSimulation';
 import BiasVarianceTradeoffSimulation from './BiasVarianceTradeoffSimulation';
+import SpearmansRankCorrelationSimulation from './SpearmansRankCorrelationSimulation';
+import KendallsTauSimulation from './KendallsTauSimulation';
+import KruskalWallisTestSimulation from './KruskalWallisTestSimulation';
+import FriedmanTestSimulation from './FriedmanTestSimulation';
+import ShapiroWilkTestSimulation from './ShapiroWilkTestSimulation';
+import LevenesTestSimulation from './LevenesTestSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -140,6 +147,12 @@ const simulationMap: Record<string, React.ComponentType> = {
     'precision-and-recall': ClassificationMetricsSimulation,
     'f1-score': ClassificationMetricsSimulation,
     'bias-variance-tradeoff': BiasVarianceTradeoffSimulation,
+    'spearmans-rank-correlation': SpearmansRankCorrelationSimulation,
+    'kendalls-tau': KendallsTauSimulation,
+    'kruskal-wallis-test': KruskalWallisTestSimulation,
+    'friedman-test': FriedmanTestSimulation,
+    'shapiro-wilk-test': ShapiroWilkTestSimulation,
+    'levenes-test': LevenesTestSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
