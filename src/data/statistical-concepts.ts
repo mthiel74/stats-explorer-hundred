@@ -166,5 +166,127 @@ A/B testing is a way to compare two versions of a single variable, typically by 
     description: `A decision tree is a flowchart-like structure in which each internal node represents a "test" on an attribute (e.g. whether a coin flip comes up heads or tails), each branch represents the outcome of the test, and each leaf node represents a class label (decision taken after computing all attributes). The paths from root to leaf represent classification rules.
     
 Decision tree learning is a method commonly used in data mining. The goal is to create a model that predicts the value of a target variable based on several input variables.`
+  },
+  {
+    id: "time-series-analysis",
+    title: "Time Series Analysis",
+    summary: "A method for analyzing time-ordered data points.",
+    description: `Time series analysis comprises methods for analyzing time series data (data points indexed in time order) in order to extract meaningful statistics and other characteristics of the data. Time series forecasting is the use of a model to predict future values based on previously observed values.
+    
+It is used in various fields such as econometrics, signal processing, and weather forecasting.`
+  },
+  {
+    id: "monte-carlo-simulation",
+    title: "Monte Carlo Simulation",
+    summary: "A model used to predict the probability of different outcomes when the intervention of random variables is present.",
+    description: `Monte Carlo simulations are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. Their essential idea is using randomness to solve problems that might be deterministic in principle. They are often used in physical and mathematical problems and are most useful when it is difficult or impossible to use other approaches.`
+  },
+  {
+    id: "principal-component-analysis",
+    title: "Principal Component Analysis (PCA)",
+    summary: "A technique for reducing the dimensionality of datasets, increasing interpretability but at the same time minimizing information loss.",
+    description: `Principal component analysis (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. This transformation is defined in such a way that the first principal component has the largest possible variance, and each succeeding component in turn has the highest variance possible under the constraint that it is orthogonal to the preceding components.`
+  },
+  {
+    id: "cluster-analysis",
+    title: "Cluster Analysis",
+    summary: "The task of grouping a set of objects so that objects in the same group are more similar to each other than to those in other groups.",
+    description: `Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters). It is a main task of exploratory data mining, and a common technique for statistical data analysis, used in many fields, including machine learning, pattern recognition, image analysis, information retrieval, bioinformatics, data compression, and computer graphics.`
+  },
+  {
+    id: "factor-analysis",
+    title: "Factor Analysis",
+    summary: "A statistical method used to describe variability among observed, correlated variables in terms of a lower number of unobserved variables.",
+    description: `Factor analysis is a statistical method used to describe variability among observed, correlated variables in terms of a potentially lower number of unobserved variables called factors. For example, it is possible that variations in six observed variables mainly reflect the variations in two unobserved (underlying) variables. Factor analysis searches for such joint variations in response to unobserved latent variables.`
+  },
+  {
+    id: "survival-analysis",
+    title: "Survival Analysis",
+    summary: "A branch of statistics for analyzing the expected duration of time until one or more events happen.",
+    description: `Survival analysis is a branch of statistics for analyzing the expected duration of time until one or more events happen, such as death in biological organisms and failure in mechanical systems. This topic is called reliability theory or reliability analysis in engineering, duration analysis or duration modelling in economics, and event history analysis in sociology. Survival analysis attempts to answer certain questions, such as what is the proportion of a population which will survive past a certain time?`
+  },
+  {
+    id: "z-score",
+    title: "Z-Score",
+    summary: "A numerical measurement that describes a value's relationship to the mean of a group of values.",
+    description: `A Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean. If a Z-score is 0, it indicates that the data point's score is identical to the mean score. A Z-score of 1.0 would indicate a value that is one standard deviation from the mean.`
+  },
+  {
+    id: "t-test",
+    title: "T-Test",
+    summary: "A type of inferential statistic used to determine if there is a significant difference between the means of two groups.",
+    description: `A t-test is an inferential statistic used to determine if there is a significant difference between the means of two groups and how they are related. T-tests are used when the data sets follow a normal distribution and have unknown variances. A t-test is a tool for evaluating the means of one or two populations using hypothesis testing.`
+  },
+  {
+    id: "f-test",
+    title: "F-Test",
+    summary: "A statistical test in which the test statistic has an F-distribution under the null hypothesis.",
+    description: `An F-test is any statistical test in which the test statistic has an F-distribution under the null hypothesis. It is most often used when comparing statistical models that have been fitted to a data set, in order to identify the model that best fits the population from which the data were sampled. F-tests arise in many different statistical settings, such as ANOVA and regression analysis.`
+  },
+  {
+    id: "effect-size",
+    title: "Effect Size",
+    summary: "A quantitative measure of the magnitude of a phenomenon.",
+    description: `In statistics, an effect size is a quantitative measure of the magnitude of a phenomenon. Examples of effect sizes include the correlation between two variables, the regression coefficient in a regression, the mean difference, or the risk of a particular event (such as a heart attack). Effect sizes complement statistical hypothesis testing, and play an important role in power analysis, sample size planning, and in meta-analyses.`
+  },
+  {
+    id: "statistical-power",
+    title: "Statistical Power",
+    summary: "The probability that a hypothesis test will correctly reject the null hypothesis when it is false.",
+    description: `In statistical hypothesis testing, the power of a binary hypothesis test is the probability that the test correctly rejects the null hypothesis (H₀) when a specific alternative hypothesis (H₁) is true. It is the probability of not committing a Type II error. The higher the statistical power, the lower the probability of making a Type II error. It is also known as the 'sensitivity' of the test.`
+  },
+  {
+    id: "statistical-bias",
+    title: "Statistical Bias",
+    summary: "A systematic tendency which causes differences between results and facts.",
+    description: `Bias is a systematic tendency which causes differences between results and facts. The bias of an estimator is the difference between this estimator's expected value and the true value of the parameter being estimated. An estimator or decision rule with zero bias is called unbiased. In statistics, "bias" is an objective property of an estimator. Bias can be introduced by a number of sources: sample selection, measurement error, or an algorithm.`
+  },
+  {
+    id: "variance",
+    title: "Variance",
+    summary: "The expectation of the squared deviation of a random variable from its mean.",
+    description: `In probability theory and statistics, variance is the expectation of the squared deviation of a random variable from its mean. Informally, it measures how far a set of numbers is spread out from their average value. Variance has a central role in statistics, where some ideas that use it include descriptive statistics, statistical inference, hypothesis testing, goodness of fit, and Monte Carlo sampling.`
+  },
+  {
+    id: "covariance",
+    title: "Covariance",
+    summary: "A measure of the joint variability of two random variables.",
+    description: `In probability theory and statistics, covariance is a measure of the joint variability of two random variables. If the greater values of one variable mainly correspond with the greater values of the other variable, and the same holds for the lesser values, the covariance is positive. In the opposite case, when the greater values of one variable mainly correspond to the lesser values of the other, the covariance is negative.`
+  },
+  {
+    id: "bayes-theorem",
+    title: "Bayes' Theorem",
+    summary: "Describes the probability of an event, based on prior knowledge of conditions that might be related to the event.",
+    description: `In probability theory and statistics, Bayes' theorem (alternatively Bayes' law or Bayes' rule) describes the probability of an event, based on prior knowledge of conditions that might be related to the event. For example, if the risk of developing health problems is known to increase with age, Bayes' theorem allows the risk to an individual of a known age to be assessed more accurately than simply assuming that the individual is typical of the population as a whole.`
+  },
+  {
+    id: "maximum-likelihood-estimation",
+    title: "Maximum Likelihood Estimation (MLE)",
+    summary: "A method of estimating the parameters of a probability distribution by maximizing a likelihood function.",
+    description: `In statistics, maximum likelihood estimation (MLE) is a method of estimating the parameters of an assumed probability distribution, given some observed data. This is achieved by maximizing a likelihood function so that, under the assumed statistical model, the observed data is most probable. The point in the parameter space that maximizes the likelihood function is called the maximum likelihood estimate.`
+  },
+  {
+    id: "bootstrapping",
+    title: "Bootstrapping",
+    summary: "A method that relies on random sampling with replacement to estimate properties of a statistic.",
+    description: `Bootstrapping is any test or metric that relies on random sampling with replacement. Bootstrapping allows assigning measures of accuracy (defined in terms of bias, variance, confidence intervals, prediction error, etc.) to sample estimates. This technique allows estimation of the sampling distribution of almost any statistic using random sampling methods.`
+  },
+  {
+    id: "cross-validation",
+    title: "Cross-Validation",
+    summary: "A resampling procedure used to evaluate machine learning models on a limited data sample.",
+    description: `Cross-validation, sometimes called rotation estimation or out-of-sample testing, is any of various similar model validation techniques for assessing how the results of a statistical analysis will generalize to an independent data set. It is mainly used in settings where the goal is prediction, and one wants to estimate how accurately a predictive model will perform in practice.`
+  },
+  {
+    id: "overfitting-and-underfitting",
+    title: "Overfitting & Underfitting",
+    summary: "Common problems in machine learning where the model performs poorly on new data.",
+    description: `In statistics and machine learning, one of the most common tasks is to fit a 'model' to a set of training data. Overfitting occurs when a statistical model or machine learning algorithm captures the noise of the data, meaning it fits the training data too well. Underfitting occurs when a model cannot capture the underlying trend of the data. An underfit model is a model where some parameters or terms that would appear in a correctly specified model are missing.`
+  },
+  {
+    id: "regularization",
+    title: "Regularization",
+    summary: "A technique used to prevent overfitting by adding a penalty term to the loss function.",
+    description: `In mathematics, statistics, and computer science, particularly in machine learning and inverse problems, regularization is the process of adding information in order to solve an ill-posed problem or to prevent overfitting. This information is usually a penalty for complexity, such as restrictions for smoothness or bounds on the vector space norm. A common example is ridge regression, which penalizes the sum of squares of the regression coefficients.`
   }
 ];
