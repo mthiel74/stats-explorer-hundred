@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,7 +11,7 @@ const GOAL_POS = { x: 4, y: 4 };
 const START_POS = { x: 0, y: 0 };
 const OBSTACLES = [{ x: 2, y: 1 }, { x: 1, y: 3 }, { x: 3, y: 3 }];
 
-type QTable = number[][][]; // state (y * GRID_SIZE + x) -> action -> q-value
+type QTable = number[][]; // state (y * GRID_SIZE + x) -> action -> q-value
 type Policy = number[][]; // y -> x -> best action
 
 const actions = ['up', 'down', 'left', 'right']; // 0, 1, 2, 3
