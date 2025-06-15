@@ -78,6 +78,11 @@ import AutoregressiveModelSimulation from './AutoregressiveModelSimulation';
 import MovingAverageModelSimulation from './MovingAverageModelSimulation';
 import ARMAModelSimulation from './ARMAModelSimulation';
 import ARIMAModelSimulation from './ARIMAModelSimulation';
+import GarchModelSimulation from './GarchModelSimulation';
+import ExponentialSmoothingSimulation from './ExponentialSmoothingSimulation';
+import SplineRegressionSimulation from './SplineRegressionSimulation';
+import KernelDensityEstimationSimulation from './KernelDensityEstimationSimulation';
+import ParametricVsNonParametricSimulation from './ParametricVsNonParametricSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -179,13 +184,18 @@ const simulationMap: Record<string, React.ComponentType> = {
     'bayesian-networks': BayesianNetworkSimulation,
     'mcmc': MCMCSimulation,
     'gibbs-sampling': GibbsSamplingSimulation,
-    'hmm': HiddenMarkovModelSimulation,
     'hidden-markov-model': HiddenMarkovModelSimulation,
     'kalman-filter': KalmanFilterSimulation,
     'autoregressive-model': AutoregressiveModelSimulation,
     'moving-average-model': MovingAverageModelSimulation,
     'arma-model': ARMAModelSimulation,
     'arima-model': ARIMAModelSimulation,
+    'garch-model': GarchModelSimulation,
+    'exponential-smoothing': ExponentialSmoothingSimulation,
+    'spline-regression': SplineRegressionSimulation,
+    'kernel-density-estimation': KernelDensityEstimationSimulation,
+    'non-parametric-statistics': ParametricVsNonParametricSimulation,
+    'parametric-statistics': ParametricVsNonParametricSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
