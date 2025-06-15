@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -12,6 +13,7 @@ import BootstrappingSimulation from '@/components/BootstrappingSimulation';
 import BayesianInferenceSimulation from '@/components/BayesianInferenceSimulation';
 import ABTestingSimulation from '@/components/ABTestingSimulation';
 import MCMCSimulation from '@/components/MCMCSimulation';
+import StandardDeviationSimulation from '@/components/StandardDeviationSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -131,6 +133,16 @@ const ConceptPage = () => {
                 </div>
                 <MCMCSimulation />
             </section>
+        )}
+
+        {concept.id === 'standard-deviation' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">A "Fiery" look at Standard Deviation</p>
+            </div>
+            <StandardDeviationSimulation />
+          </section>
         )}
       </main>
       <footer className="py-6 border-t mt-12">
