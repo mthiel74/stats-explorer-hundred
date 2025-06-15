@@ -168,7 +168,7 @@ const ConceptPage = () => {
           </section>
         )}
         
-        {concept.id === 'mcmc-methods' && (
+        {(concept.id === 'mcmc-methods' || concept.id === 'monte-carlo-simulation') && (
             <section className="max-w-5xl mx-auto mt-16">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
@@ -218,7 +218,7 @@ const ConceptPage = () => {
             </section>
         )}
 
-        {concept.id === 'dimensionality-reduction' && (
+        {(concept.id === 'dimensionality-reduction' || concept.id === 'pca') && (
             <section className="max-w-5xl mx-auto mt-16">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
@@ -228,7 +228,7 @@ const ConceptPage = () => {
             </section>
         )}
 
-        {concept.id === 'k-means-clustering' && (
+        {(concept.id === 'k-means-clustering' || concept.id === 'cluster-analysis') && (
             <section className="max-w-5xl mx-auto mt-16">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
