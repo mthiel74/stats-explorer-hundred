@@ -69,6 +69,10 @@ import WilcoxonSignedRankTestSimulation from './WilcoxonSignedRankTestSimulation
 import BartlettsTestSimulation from './BartlettsTestSimulation';
 import OutlierDetectionSimulation from './OutlierDetectionSimulation';
 import ImputationSimulation from './ImputationSimulation';
+import DataCleansingSimulation from './DataCleansingSimulation';
+import ETLSimulation from './ETLSimulation';
+import BayesianNetworkSimulation from './BayesianNetworkSimulation';
+import GibbsSamplingSimulation from './GibbsSamplingSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -165,6 +169,12 @@ const simulationMap: Record<string, React.ComponentType> = {
     'bartletts-test': BartlettsTestSimulation,
     'outlier-detection': OutlierDetectionSimulation,
     'imputation': ImputationSimulation,
+    'data-cleansing': DataCleansingSimulation,
+    'etl': ETLSimulation,
+    'bayesian-networks': BayesianNetworkSimulation,
+    'mcmc': MCMCSimulation,
+    'gibbs-sampling': GibbsSamplingSimulation,
+    'metropolis-hastings-algorithm': MCMCSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
