@@ -222,6 +222,8 @@ const simulationMap: Record<string, React.ComponentType> = {
     'model-selection-criteria': ModelSelectionCriteriaSimulation,
     'aic': ModelSelectionCriteriaSimulation,
     'bic': ModelSelectionCriteriaSimulation,
+    'akaike-information-criterion': ModelSelectionCriteriaSimulation,
+    'bayesian-information-criterion': ModelSelectionCriteriaSimulation,
     'multicollinearity': MulticollinearitySimulation,
     'homoscedasticity': HomoscedasticitySimulation,
     'heteroscedasticity': HomoscedasticitySimulation,
@@ -243,6 +245,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'mediation-analysis': MediationAnalysisSimulation,
     'moderation-analysis': ModerationAnalysisSimulation,
     'structural-equation-modelling': StructuralEquationModellingSimulation,
+    'structural-equation-modeling': StructuralEquationModellingSimulation,
     'path-analysis': PathAnalysisSimulation,
 };
 
