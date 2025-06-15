@@ -24,6 +24,9 @@ import KMeansClusteringSimulation from '@/components/KMeansClusteringSimulation'
 import DecisionTreesSimulation from '@/components/DecisionTreesSimulation';
 import NaiveBayesSimulation from '@/components/NaiveBayesSimulation';
 import SupportVectorMachineSimulation from '@/components/SupportVectorMachineSimulation';
+import BigDataSimulation from '@/components/BigDataSimulation';
+import DataVisualisationSimulation from '@/components/DataVisualisationSimulation';
+import TimeSeriesAnalysisSimulation from '@/components/TimeSeriesAnalysisSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -262,6 +265,36 @@ const ConceptPage = () => {
                     <p className="text-muted-foreground">A "Guardian's Blade" view of Support Vector Machines</p>
                 </div>
                 <SupportVectorMachineSimulation />
+            </section>
+        )}
+
+        {concept.id === 'big-data' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">The Leviathan's Data (Big Data)</p>
+                </div>
+                <BigDataSimulation />
+            </section>
+        )}
+
+        {concept.id === 'data-visualisation' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">The Scryer's Easel (Data Visualisation)</p>
+                </div>
+                <DataVisualisationSimulation />
+            </section>
+        )}
+
+        {concept.id === 'time-series-analysis' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">The Oracle's Chronometer (Time Series Analysis)</p>
+                </div>
+                <TimeSeriesAnalysisSimulation />
             </section>
         )}
       </main>
