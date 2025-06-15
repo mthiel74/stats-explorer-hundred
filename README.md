@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# Stats Explorer Hundred
 
-## Project info
+Stats Explorer Hundred is a React + TypeScript single‑page application created with Vite. It presents one hundred statistics and data‑science concepts. Each concept page contains a short explanation along with an interactive simulation built using Recharts and shadcn‑ui components.
 
-**URL**: https://lovable.dev/projects/a7d8effa-e17c-4d8c-869c-0eed85657545
+## Getting Started
 
-## How can I edit this code?
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Start the development server:
+   ```sh
+   npm run dev
+   ```
+   The site will be available at `http://localhost:5173` by default.
 
-There are several ways of editing your application.
+To create a production build run `npm run build` and serve the contents of the `dist` directory with any static file server.
 
-**Use Lovable**
+## Repository Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a7d8effa-e17c-4d8c-869c-0eed85657545) and start prompting.
+- `src/data/statistical-concepts.ts` – metadata describing each concept
+- `src/components` – React components that implement the interactive simulations
+- `src/pages` – application pages such as the concept list and individual concept view
+- `src/components/ConceptSimulationWrapper.tsx` – maps concept IDs to their simulation components
 
-Changes made via Lovable will be committed automatically to this repo.
+## Known Issues
 
-**Use your preferred IDE**
+- **Support Vector Machines (SVM)** – the concept entry uses the ID `support-vector-machines` while the component mapping expected `support-vector-machine`. This mismatch prevented the simulation from loading. The mapping has been fixed, but the simulation may still require further tuning.
+- **Overfitting & Underfitting** – this simulation occasionally renders without any data points. Click **New Data Sample** to regenerate the dataset if this occurs.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Original Project URL
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a7d8effa-e17c-4d8c-869c-0eed85657545) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project was bootstrapped using [Lovable](https://lovable.dev/projects/a7d8effa-e17c-4d8c-869c-0eed85657545) and can also be edited there.
