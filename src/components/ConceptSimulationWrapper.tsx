@@ -53,6 +53,9 @@ import NLPSimulation from './NLPSimulation';
 import BagOfWordsSimulation from './BagOfWordsSimulation';
 import TfIdfSimulation from './TfIdfSimulation';
 import WordEmbeddingSimulation from './WordEmbeddingSimulation';
+import AUCRocCurveSimulation from './AUCRocCurveSimulation';
+import ClassificationMetricsSimulation from './ClassificationMetricsSimulation';
+import BiasVarianceTradeoffSimulation from './BiasVarianceTradeoffSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -132,6 +135,11 @@ const simulationMap: Record<string, React.ComponentType> = {
     'tf-idf': TfIdfSimulation,
     'word-embedding': WordEmbeddingSimulation,
     'word-embeddings': WordEmbeddingSimulation,
+    'auc-roc-curve': AUCRocCurveSimulation,
+    'confusion-matrix': ClassificationMetricsSimulation,
+    'precision-and-recall': ClassificationMetricsSimulation,
+    'f1-score': ClassificationMetricsSimulation,
+    'bias-variance-tradeoff': BiasVarianceTradeoffSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
