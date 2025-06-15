@@ -9,7 +9,7 @@ const generateSVMData = () => {
     const data = [];
     for (let i = 0; i < 50; i++) {
         data.push({ x: 1 + Math.random(), y: 1 + Math.random(), label: 0 });
-        data.push({ x: 3 + Math.random(), y: 3 + Math.random(), label: 1 });
+        data.push({ x: 2.5 + Math.random(), y: 2.5 + Math.random(), label: 1 });
     }
     return data;
 };
