@@ -4,25 +4,26 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { ResponsiveContainer, ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Scatter, Line, ReferenceLine } from 'recharts';
 
-const RegressionDiscontinuitySimulation = () => {
-    const [data, setData] = useState(generateRDDData());
+const TREATMENT_EFFECT = 15;
 
-    function generateRDDData() {
-        const n = 100;
-        const cutoff = 50;
-        const treatment_effect = 15;
-        const temp_data = [];
+function generateRDDData() {
+    const n = 100;
+    const cutoff = 50;
+    const temp_data = [];
 
-        for (let i = 0; i < n; i++) {
-            const x = i;
-            const treatment = x >= cutoff ? 1 : 0;
-            const error = (Math.random() - 0.5) * 20;
-            const y = 10 + 0.8 * x + treatment_effect * treatment + error;
-            temp_data.push({ x, y, treatment });
-        }
-        return temp_data;
+    for (let i = 0; i < n; i++) {
+        const x = i;
+        const treatment = x >= cutoff ? 1 : 0;
+        const error = (Math.random() - 0.5) * 20;
+        const y = 10 + 0.8 * x + TREATMENT_EFFECT * treatment + error;
+        temp_data.push({ x, y, treatment });
     }
-    
+    return temp_data;
+}
+
+const RegressionDiscontinuitySimulation = () => {
+    const [data, setData] = useState(generateRDDData);
+
     const { treatedData, controlData, lineData } = useMemo(() => {
         const controlData = data.filter(d => d.treatment === 0);
         const treatedData = data.filter(d => d.treatment === 1);
@@ -30,8 +31,8 @@ const RegressionDiscontinuitySimulation = () => {
         // Simplified regression lines for visualization
         const controlY1 = 10 + 0.8 * 0;
         const controlY2 = 10 + 0.8 * 49;
-        const treatedY1 = 10 + 0.8 * 50 + treatment_effect;
-        const treatedY2 = 10 + 0.8 * 99 + treatment_effect;
+        const treatedY1 = 10 + 0.8 * 50 + TREATMENT_EFFECT;
+        const treatedY2 = 10 + 0.8 * 99 + TREATMENT_EFFECT;
 
         const lineData = [
             { x1: 0, y1: controlY1, x2: 49, y2: controlY2 },
@@ -58,7 +59,7 @@ const RegressionDiscontinuitySimulation = () => {
                         </p>
                          <div className="p-4 bg-muted rounded-lg text-center">
                             <h4 className="font-semibold">Estimated Treatment Effect (The Jump)</h4>
-                            <p className="text-2xl font-bold text-primary">~15.00</p>
+                            <p className="text-2xl font-bold text-primary">~{TREATMENT_EFFECT.toFixed(2)}</p>
                         </div>
                     </div>
                     <ResponsiveContainer width="100%" height={350}>
