@@ -5,8 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { HeartPulse } from 'lucide-react';
 
-const generateSurvivalData = (n, rate) => {
-    const data = [];
+type SurvivalDataPoint = {
+    time: number;
+    status: number; // 0 = censored, 1 = event
+};
+
+const generateSurvivalData = (n: number, rate: number): SurvivalDataPoint[] => {
+    const data: SurvivalDataPoint[] = [];
     for (let i = 0; i < n; i++) {
         // Inverse transform sampling from exponential distribution
         const time = -Math.log(Math.random()) / rate;
@@ -20,7 +25,7 @@ const generateSurvivalData = (n, rate) => {
     return data.sort((a, b) => a.time - b.time);
 };
 
-const calculateKaplanMeier = (data) => {
+const calculateKaplanMeier = (data: SurvivalDataPoint[]) => {
     let atRisk = data.length;
     let survival = 1;
 
@@ -40,7 +45,7 @@ const calculateKaplanMeier = (data) => {
     }
     
     // Ensure the line goes to the end
-    if (events[events.length - 1].time < 5) {
+    if (events.length > 0 && events[events.length - 1].time < 5) {
         events.push({ time: 5, survival: events[events.length - 1].survival });
     }
 
@@ -49,7 +54,7 @@ const calculateKaplanMeier = (data) => {
 
 
 const SurvivalAnalysisSimulation = () => {
-    const [data, setData] = useState(generateSurvivalData(50, 0.3));
+    const [data, setData] = useState(() => generateSurvivalData(50, 0.3));
     
     const kaplanMeierData = useMemo(() => calculateKaplanMeier(data), [data]);
 
