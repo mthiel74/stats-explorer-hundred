@@ -164,6 +164,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'overfitting-and-underfitting': OverfittingUnderfittingSimulation,
     'overfitting': OverfittingUnderfittingSimulation,
     'underfitting': OverfittingUnderfittingSimulation,
+    'regularization': RegularisationSimulation,
     'regularisation': RegularisationSimulation,
     'hierarchical-clustering': HierarchicalClusteringSimulation,
     'dbscan': DBSCANSimulation,
