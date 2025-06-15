@@ -27,6 +27,9 @@ import SupportVectorMachineSimulation from '@/components/SupportVectorMachineSim
 import BigDataSimulation from '@/components/BigDataSimulation';
 import DataVisualisationSimulation from '@/components/DataVisualisationSimulation';
 import TimeSeriesAnalysisSimulation from '@/components/TimeSeriesAnalysisSimulation';
+import LogisticRegressionSimulation from '@/components/LogisticRegressionSimulation';
+import MachineLearningSimulation from '@/components/MachineLearningSimulation';
+import SamplingSimulation from '@/components/SamplingSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -118,7 +121,7 @@ const ConceptPage = () => {
           </section>
         )}
 
-        {concept.id === 'regression-analysis' && (
+        {(concept.id === 'regression-analysis' || concept.id === 'linear-regression') && (
           <section className="max-w-5xl mx-auto mt-16">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
@@ -126,6 +129,16 @@ const ConceptPage = () => {
             </div>
             <RegressionAnalysisSimulation />
           </section>
+        )}
+
+        {concept.id === 'logistic-regression' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Predictive" look at Logistic Regression</p>
+                </div>
+                <LogisticRegressionSimulation />
+            </section>
         )}
 
         {concept.id === 'confidence-intervals' && (
@@ -265,6 +278,26 @@ const ConceptPage = () => {
                     <p className="text-muted-foreground">A "Guardian's Blade" view of Support Vector Machines</p>
                 </div>
                 <SupportVectorMachineSimulation />
+            </section>
+        )}
+
+        {concept.id === 'machine-learning' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Conceptual" look at Machine Learning</p>
+                </div>
+                <MachineLearningSimulation />
+            </section>
+        )}
+
+        {concept.id === 'sampling' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">A "Wild" look at Sampling</p>
+                </div>
+                <SamplingSimulation />
             </section>
         )}
 
