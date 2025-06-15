@@ -8,6 +8,8 @@ import CorrelationSimulation from '@/components/CorrelationSimulation';
 import HypothesisTestingSimulation from '@/components/HypothesisTestingSimulation';
 import MaximumLikelihoodEstimationSimulation from '@/components/MaximumLikelihoodEstimationSimulation';
 import RegressionAnalysisSimulation from '@/components/RegressionAnalysisSimulation';
+import ConfidenceIntervalsSimulation from '@/components/ConfidenceIntervalsSimulation';
+import BootstrappingSimulation from '@/components/BootstrappingSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -76,6 +78,26 @@ const ConceptPage = () => {
               <p className="text-muted-foreground">An "Animalistic" look at Regression Analysis</p>
             </div>
             <RegressionAnalysisSimulation />
+          </section>
+        )}
+
+        {concept.id === 'confidence-intervals' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">An "Animalistic" look at Confidence Intervals</p>
+            </div>
+            <ConfidenceIntervalsSimulation />
+          </section>
+        )}
+
+        {concept.id === 'bootstrapping' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">An "Animalistic" look at Bootstrapping</p>
+            </div>
+            <BootstrappingSimulation />
           </section>
         )}
       </main>
