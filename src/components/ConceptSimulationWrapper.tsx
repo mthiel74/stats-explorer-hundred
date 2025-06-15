@@ -142,6 +142,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'naive-bayes-classifier': NaiveBayesSimulation,
     'svm': SupportVectorMachineSimulation,
     'support-vector-machine': SupportVectorMachineSimulation,
+    'support-vector-machines': SupportVectorMachineSimulation,
     'machine-learning': MachineLearningSimulation,
     'supervised-learning': MachineLearningSimulation,
     'unsupervised-learning': MachineLearningSimulation,
