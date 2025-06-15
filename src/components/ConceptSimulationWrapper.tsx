@@ -1,3 +1,4 @@
+
 import React from 'react';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
@@ -83,6 +84,10 @@ import ExponentialSmoothingSimulation from './ExponentialSmoothingSimulation';
 import SplineRegressionSimulation from './SplineRegressionSimulation';
 import KernelDensityEstimationSimulation from './KernelDensityEstimationSimulation';
 import ParametricVsNonParametricSimulation from './ParametricVsNonParametricSimulation';
+import LikelihoodRatioTestSimulation from './LikelihoodRatioTestSimulation';
+import ModelSelectionCriteriaSimulation from './ModelSelectionCriteriaSimulation';
+import MulticollinearitySimulation from './MulticollinearitySimulation';
+import HomoscedasticitySimulation from './HomoscedasticitySimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -196,6 +201,12 @@ const simulationMap: Record<string, React.ComponentType> = {
     'kernel-density-estimation': KernelDensityEstimationSimulation,
     'non-parametric-statistics': ParametricVsNonParametricSimulation,
     'parametric-statistics': ParametricVsNonParametricSimulation,
+    'likelihood-ratio-test': LikelihoodRatioTestSimulation,
+    'aic': ModelSelectionCriteriaSimulation,
+    'bic': ModelSelectionCriteriaSimulation,
+    'multicollinearity': MulticollinearitySimulation,
+    'homoscedasticity': HomoscedasticitySimulation,
+    'heteroscedasticity': HomoscedasticitySimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
