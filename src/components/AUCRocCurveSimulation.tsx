@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-import { AreaChart, Area, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine, Dot } from 'recharts';
+import { AreaChart, Area, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine, Dot, Label as RechartsLabel } from 'recharts';
 import { Wand2 } from 'lucide-react';
 
 const generateScores = (count: number, mean: number, stdDev: number) => 
@@ -89,7 +89,7 @@ const AUCRocCurveSimulation = () => {
                                 <Area type="monotone" dataKey="tpr" stroke="hsl(var(--primary))" fill="hsl(var(--primary) / 0.2)" name="ROC Curve" dot={<CustomDot />} />
                                 <Line type="monotone" dataKey="random" strokeDasharray="5 5" stroke="#888" name="Random Chance" dot={false} data={[{fpr:0, random:0}, {fpr:1, random:1}]} />
                                 <ReferenceLine x={thresholdPoint.fpr} y={thresholdPoint.tpr} stroke="hsl(var(--primary))">
-                                    <Label value={`Best Threshold: ${thresholdPoint.threshold.toFixed(2)}`} position="insideTopLeft" />
+                                    <RechartsLabel value={`Best Threshold: ${thresholdPoint.threshold.toFixed(2)}`} position="insideTopLeft" />
                                 </ReferenceLine>
                             </AreaChart>
                         </ResponsiveContainer>
