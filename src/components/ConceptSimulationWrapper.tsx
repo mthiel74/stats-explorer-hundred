@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
@@ -22,9 +21,9 @@ import KMeansClusteringSimulation from '@/components/KMeansClusteringSimulation'
 import DecisionTreesSimulation from '@/components/DecisionTreesSimulation';
 import NaiveBayesSimulation from '@/components/NaiveBayesSimulation';
 import SupportVectorMachineSimulation from '@/components/SupportVectorMachineSimulation';
-import BigDataSimulation from '@/components/BigDataSimulation';
-import DataVisualisationSimulation from '@/components/DataVisualisationSimulation';
-import TimeSeriesAnalysisSimulation from '@/components/TimeSeriesAnalysisSimulation';
+import BigDataSimulation from './BigDataSimulation';
+import DataVisualisationSimulation from './DataVisualisationSimulation';
+import TimeSeriesAnalysisSimulation from './TimeSeriesAnalysisSimulation';
 import LogisticRegressionSimulation from '@/components/LogisticRegressionSimulation';
 import MachineLearningSimulation from '@/components/MachineLearningSimulation';
 import SamplingSimulation from '@/components/SamplingSimulation';
@@ -73,6 +72,12 @@ import DataCleansingSimulation from './DataCleansingSimulation';
 import ETLSimulation from './ETLSimulation';
 import BayesianNetworkSimulation from './BayesianNetworkSimulation';
 import GibbsSamplingSimulation from './GibbsSamplingSimulation';
+import HiddenMarkovModelSimulation from './HiddenMarkovModelSimulation';
+import KalmanFilterSimulation from './KalmanFilterSimulation';
+import AutoregressiveModelSimulation from './AutoregressiveModelSimulation';
+import MovingAverageModelSimulation from './MovingAverageModelSimulation';
+import ARMAModelSimulation from './ARMAModelSimulation';
+import ARIMAModelSimulation from './ARIMAModelSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -174,7 +179,13 @@ const simulationMap: Record<string, React.ComponentType> = {
     'bayesian-networks': BayesianNetworkSimulation,
     'mcmc': MCMCSimulation,
     'gibbs-sampling': GibbsSamplingSimulation,
-    'metropolis-hastings-algorithm': MCMCSimulation,
+    'hmm': HiddenMarkovModelSimulation,
+    'hidden-markov-model': HiddenMarkovModelSimulation,
+    'kalman-filter': KalmanFilterSimulation,
+    'autoregressive-model': AutoregressiveModelSimulation,
+    'moving-average-model': MovingAverageModelSimulation,
+    'arma-model': ARMAModelSimulation,
+    'arima-model': ARIMAModelSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
