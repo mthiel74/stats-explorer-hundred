@@ -1,7 +1,9 @@
+
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
 import NotFound from './NotFound';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
 import HypothesisTestingSimulation from '@/components/HypothesisTestingSimulation';
@@ -39,308 +41,234 @@ const ConceptPage = () => {
   if (!concept) {
     return <NotFound />;
   }
+  
+  const SimulationHeader = ({ title, subtitle }: { title: string, subtitle: string }) => (
+    <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-serif font-bold">{title}</h2>
+        <p className="text-muted-foreground">{subtitle}</p>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main className="container mx-auto py-12">
-        <article className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-primary">{concept.title}</h1>
-          <p className="text-xl text-muted-foreground mb-8 italic">{concept.summary}</p>
-          <div className="prose prose-lg max-w-none" style={{ whiteSpace: 'pre-line' }}>
-            {concept.description}
-          </div>
-        </article>
-
-        {concept.id === 'central-limit-theorem' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" take on the Central Limit Theorem</p>
+        <Card className="max-w-5xl mx-auto">
+          <CardHeader>
+            <CardTitle className="text-4xl md:text-5xl font-serif font-bold mb-4 text-primary">{concept.title}</CardTitle>
+            <CardDescription className="text-xl text-muted-foreground italic">{concept.summary}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="prose prose-lg max-w-none mb-12" style={{ whiteSpace: 'pre-line' }}>
+              {concept.description}
             </div>
-            <CentralLimitTheoremSimulation />
-          </section>
-        )}
 
-        {concept.id === 'correlation' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Correlation</p>
+            <div className="mt-16 border-t pt-12">
+                {concept.id === 'central-limit-theorem' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' take on the Central Limit Theorem" />
+                    <CentralLimitTheoremSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'correlation' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Correlation" />
+                    <CorrelationSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'hypothesis-testing' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Hypothesis Testing" />
+                    <HypothesisTestingSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'p-value' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Judgemental' look at p-values" />
+                    <PValueSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'type-i-and-type-ii-errors' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="The Oracle's Dilemma of Type I & II Errors" />
+                    <TypeErrorsSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'law-of-large-numbers' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Draconic' look at the Law of Large Numbers" />
+                    <LawOfLargeNumbersSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'maximum-likelihood-estimation' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Maximum Likelihood Estimation" />
+                    <MaximumLikelihoodEstimationSimulation />
+                  </section>
+                )}
+
+                {(concept.id === 'regression-analysis' || concept.id === 'linear-regression') && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Regression Analysis" />
+                    <RegressionAnalysisSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'logistic-regression' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Predictive' look at Logistic Regression" />
+                        <LogisticRegressionSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'confidence-intervals' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Confidence Intervals" />
+                    <ConfidenceIntervalsSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'bootstrapping' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Animalistic' look at Bootstrapping" />
+                    <BootstrappingSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'bayesian-inference' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Mystical' look at Bayesian Inference" />
+                    <BayesianInferenceSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'ab-testing' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="An 'Alchemical' look at A/B Testing" />
+                    <ABTestingSimulation />
+                  </section>
+                )}
+                
+                {(concept.id === 'mcmc-methods' || concept.id === 'monte-carlo-simulation') && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Cryptid' look at MCMC" />
+                        <MCMCSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'standard-deviation' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Fiery' look at Standard Deviation" />
+                    <StandardDeviationSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'anova' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Bestial' look at ANOVA" />
+                        <AnovaSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'chi-squared-test' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Cartographical' look at the Chi-Squared Test" />
+                        <ChiSquaredTestSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'bayesian-vs-frequentist' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="An 'Oracular' look at Bayesian vs. Frequentist methods" />
+                        <BayesianVsFrequentistSimulation />
+                    </section>
+                )}
+
+                {(concept.id === 'dimensionality-reduction' || concept.id === 'pca') && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Drifting' look at Dimensionality Reduction (PCA)" />
+                        <PCASimulation />
+                    </section>
+                )}
+
+                {(concept.id === 'k-means-clustering' || concept.id === 'cluster-analysis') && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Kingdom' view of K-Means Clustering" />
+                        <KMeansClusteringSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'decision-trees' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="An 'Oracle's Grove' look at Decision Trees" />
+                        <DecisionTreesSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'naive-bayes' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Scribe's Filter' for Naive Bayes" />
+                        <NaiveBayesSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'svm' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Guardian's Blade' view of Support Vector Machines" />
+                        <SupportVectorMachineSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'machine-learning' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Conceptual' look at Machine Learning" />
+                        <MachineLearningSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'sampling' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="A 'Wild' look at Sampling" />
+                        <SamplingSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'big-data' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="The Leviathan's Data (Big Data)" />
+                        <BigDataSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'data-visualisation' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="The Scryer's Easel (Data Visualisation)" />
+                        <DataVisualisationSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'time-series-analysis' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="The Oracle's Chronometer (Time Series Analysis)" />
+                        <TimeSeriesAnalysisSimulation />
+                    </section>
+                )}
+
+                {concept.id === 'factor-analysis' && (
+                    <section>
+                        <SimulationHeader title="Interactive Simulation" subtitle="The Alchemist's Essence (Factor Analysis)" />
+                        <FactorAnalysisSimulation />
+                    </section>
+                )}
             </div>
-            <CorrelationSimulation />
-          </section>
-        )}
-
-        {concept.id === 'hypothesis-testing' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Hypothesis Testing</p>
-            </div>
-            <HypothesisTestingSimulation />
-          </section>
-        )}
-
-        {concept.id === 'p-value' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">A "Judgemental" look at p-values</p>
-            </div>
-            <PValueSimulation />
-          </section>
-        )}
-
-        {concept.id === 'type-i-and-type-ii-errors' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">The Oracle's Dilemma of Type I & II Errors</p>
-            </div>
-            <TypeErrorsSimulation />
-          </section>
-        )}
-
-        {concept.id === 'law-of-large-numbers' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">A "Draconic" look at the Law of Large Numbers</p>
-            </div>
-            <LawOfLargeNumbersSimulation />
-          </section>
-        )}
-
-        {concept.id === 'maximum-likelihood-estimation' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Maximum Likelihood Estimation</p>
-            </div>
-            <MaximumLikelihoodEstimationSimulation />
-          </section>
-        )}
-
-        {(concept.id === 'regression-analysis' || concept.id === 'linear-regression') && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Regression Analysis</p>
-            </div>
-            <RegressionAnalysisSimulation />
-          </section>
-        )}
-
-        {concept.id === 'logistic-regression' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Predictive" look at Logistic Regression</p>
-                </div>
-                <LogisticRegressionSimulation />
-            </section>
-        )}
-
-        {concept.id === 'confidence-intervals' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Confidence Intervals</p>
-            </div>
-            <ConfidenceIntervalsSimulation />
-          </section>
-        )}
-
-        {concept.id === 'bootstrapping' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Animalistic" look at Bootstrapping</p>
-            </div>
-            <BootstrappingSimulation />
-          </section>
-        )}
-
-        {concept.id === 'bayesian-inference' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">A "Mystical" look at Bayesian Inference</p>
-            </div>
-            <BayesianInferenceSimulation />
-          </section>
-        )}
-
-        {concept.id === 'ab-testing' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">An "Alchemical" look at A/B Testing</p>
-            </div>
-            <ABTestingSimulation />
-          </section>
-        )}
-        
-        {(concept.id === 'mcmc-methods' || concept.id === 'monte-carlo-simulation') && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Cryptid" look at MCMC</p>
-                </div>
-                <MCMCSimulation />
-            </section>
-        )}
-
-        {concept.id === 'standard-deviation' && (
-          <section className="max-w-5xl mx-auto mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-              <p className="text-muted-foreground">A "Fiery" look at Standard Deviation</p>
-            </div>
-            <StandardDeviationSimulation />
-          </section>
-        )}
-
-        {concept.id === 'anova' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Bestial" look at ANOVA</p>
-                </div>
-                <AnovaSimulation />
-            </section>
-        )}
-
-        {concept.id === 'chi-squared-test' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Cartographical" look at the Chi-Squared Test</p>
-                </div>
-                <ChiSquaredTestSimulation />
-            </section>
-        )}
-
-        {concept.id === 'bayesian-vs-frequentist' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">An "Oracular" look at Bayesian vs. Frequentist methods</p>
-                </div>
-                <BayesianVsFrequentistSimulation />
-            </section>
-        )}
-
-        {(concept.id === 'dimensionality-reduction' || concept.id === 'pca') && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Drifting" look at Dimensionality Reduction (PCA)</p>
-                </div>
-                <PCASimulation />
-            </section>
-        )}
-
-        {(concept.id === 'k-means-clustering' || concept.id === 'cluster-analysis') && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Kingdom" view of K-Means Clustering</p>
-                </div>
-                <KMeansClusteringSimulation />
-            </section>
-        )}
-
-        {concept.id === 'decision-trees' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">An "Oracle's Grove" look at Decision Trees</p>
-                </div>
-                <DecisionTreesSimulation />
-            </section>
-        )}
-
-        {concept.id === 'naive-bayes' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Scribe's Filter" for Naive Bayes</p>
-                </div>
-                <NaiveBayesSimulation />
-            </section>
-        )}
-
-        {concept.id === 'svm' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Guardian's Blade" view of Support Vector Machines</p>
-                </div>
-                <SupportVectorMachineSimulation />
-            </section>
-        )}
-
-        {concept.id === 'machine-learning' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Conceptual" look at Machine Learning</p>
-                </div>
-                <MachineLearningSimulation />
-            </section>
-        )}
-
-        {concept.id === 'sampling' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">A "Wild" look at Sampling</p>
-                </div>
-                <SamplingSimulation />
-            </section>
-        )}
-
-        {concept.id === 'big-data' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">The Leviathan's Data (Big Data)</p>
-                </div>
-                <BigDataSimulation />
-            </section>
-        )}
-
-        {concept.id === 'data-visualisation' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">The Scryer's Easel (Data Visualisation)</p>
-                </div>
-                <DataVisualisationSimulation />
-            </section>
-        )}
-
-        {concept.id === 'time-series-analysis' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">The Oracle's Chronometer (Time Series Analysis)</p>
-                </div>
-                <TimeSeriesAnalysisSimulation />
-            </section>
-        )}
-
-        {concept.id === 'factor-analysis' && (
-            <section className="max-w-5xl mx-auto mt-16">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
-                    <p className="text-muted-foreground">The Alchemist's Essence (Factor Analysis)</p>
-                </div>
-                <FactorAnalysisSimulation />
-            </section>
-        )}
+          </CardContent>
+        </Card>
       </main>
       <footer className="py-6 border-t mt-12">
         <div className="container mx-auto text-center text-muted-foreground">
