@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts';
-import { GitTree } from 'lucide-react';
+import { GitBranch } from 'lucide-react';
 
 const generateBiclassData = (n) => {
   const data = [];
@@ -42,7 +42,7 @@ const DecisionTreesSimulation = () => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="flex items-center gap-2"><GitTree /> The Oracle's Grove (Decision Tree)</CardTitle>
+                <CardTitle className="flex items-center gap-2"><GitBranch /> The Oracle's Grove (Decision Tree)</CardTitle>
                 <CardDescription>
                     Decision Trees partition data based on feature values to make predictions. Watch how simple rules carve up the space.
                 </CardDescription>
