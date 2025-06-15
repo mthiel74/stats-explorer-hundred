@@ -1,11 +1,11 @@
 
-```tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Bot, Star, XCircle, Play, RotateCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Progress } from '@/components/ui/progress';
 
 const GRID_SIZE = 5;
 const GOAL_POS = { x: 4, y: 4 };
@@ -57,32 +57,43 @@ const ReinforcementLearningSimulation = () => {
         const discountFactor = 0.9;
         const epsilon = 0.1;
 
-        for (let i = 0; i < 10; i++) {
-            const currentState = Math.floor(Math.random() * GRID_SIZE * GRID_SIZE);
-            
-            let action;
-            if (Math.random() < epsilon) {
-                action = Math.floor(Math.random() * 4);
-            } else {
-                action = currentQTable[currentState].indexOf(Math.max(...currentQTable[currentState]));
-            }
+        for (let i = 0; i < 10; i++) { // Train 10 episodes per step for faster progress
+            // Start each episode from the beginning
+            let { x, y } = START_POS;
+            let episodeSteps = 0;
 
-            let { x, y } = { x: currentState % GRID_SIZE, y: Math.floor(currentState / GRID_SIZE) };
-            
-            let newX = x, newY = y;
-            if (action === 0 && y > 0) newY--;
-            if (action === 1 && y < GRID_SIZE - 1) newY++;
-            if (action === 2 && x > 0) newX--;
-            if (action === 3 && x < GRID_SIZE - 1) newX++;
-            
-            const reward = getReward(newX, newY);
-            const newState = newY * GRID_SIZE + newX;
-            
-            const oldQValue = currentQTable[currentState][action];
-            const maxFutureQ = Math.max(...currentQTable[newState]);
-            const newQValue = oldQValue + learningRate * (reward + discountFactor * maxFutureQ - oldQValue);
-            
-            currentQTable[currentState][action] = newQValue;
+            while(episodeSteps < 100) { // Max steps per episode to avoid infinite loops
+                const currentState = y * GRID_SIZE + x;
+
+                if(x === GOAL_POS.x && y === GOAL_POS.y) break;
+                if(OBSTACLES.some(obs => obs.x === x && obs.y === y)) break; // Should not happen if starting correctly
+
+                let action;
+                if (Math.random() < epsilon) {
+                    action = Math.floor(Math.random() * 4);
+                } else {
+                    action = currentQTable[currentState].indexOf(Math.max(...currentQTable[currentState]));
+                }
+
+                let newX = x, newY = y;
+                if (action === 0 && y > 0) newY--;
+                else if (action === 1 && y < GRID_SIZE - 1) newY++;
+                else if (action === 2 && x > 0) newX--;
+                else if (action === 3 && x < GRID_SIZE - 1) newX++;
+                
+                const reward = getReward(newX, newY);
+                const newState = newY * GRID_SIZE + newX;
+                
+                const oldQValue = currentQTable[currentState][action];
+                const maxFutureQ = Math.max(...currentQTable[newState]);
+                const newQValue = oldQValue + learningRate * (reward + discountFactor * maxFutureQ - oldQValue);
+                
+                currentQTable[currentState][action] = newQValue;
+                
+                x = newX;
+                y = newY;
+                episodeSteps++;
+            }
         }
 
         setQTable(currentQTable);
@@ -158,9 +169,7 @@ const ReinforcementLearningSimulation = () => {
                         </div>
                         <div className="space-y-1">
                             <Label>Training Progress (1000 Episodes)</Label>
-                            <div className="w-full bg-muted rounded-full h-2.5">
-                                <div className="bg-primary h-2.5 rounded-full" style={{ width: `${trainingProgress}%` }}></div>
-                            </div>
+                            <Progress value={trainingProgress} className="h-2.5" />
                             <p className="text-xs text-muted-foreground">Episodes: {episodes}</p>
                         </div>
                         <div className="flex gap-4 text-sm">
@@ -176,5 +185,3 @@ const ReinforcementLearningSimulation = () => {
 };
 
 export default ReinforcementLearningSimulation;
-```
-
