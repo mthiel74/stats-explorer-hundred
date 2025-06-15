@@ -76,7 +76,7 @@ const MachineLearningSimulation = () => {
                         {isTrained && <span className="text-xs font-bold ml-1 animate-fade-in">{item.label}</span>}
                     </div>
                   ))}
-                  {isTrained && <div className="absolute top-1/2 left-0 w-full h-px bg-gray-400 origin-left animate-scale-in" style={{ transform: 'rotate(-35deg) scaleX(1.2)' }} />}
+                  {isTrained && <div className="absolute top-1/2 left-0 w-full h-px bg-gray-400 origin-left animate-scale-in" style={{ transform: 'rotate(-40deg) scaleX(1.2)' }} />}
                   <div className="absolute bottom-4 right-4">
                     <Button onClick={handleTrainClick} disabled={isTraining}><Settings className="mr-2 h-4 w-4" /> {isTraining ? 'Training...' : (isTrained ? "Reset Model" : "Train Model")}</Button>
                   </div>

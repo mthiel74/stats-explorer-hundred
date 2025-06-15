@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Scatter } from 'recharts';
+import { ScatterChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Scatter } from 'recharts';
 import { SquareArrowUp } from 'lucide-react';
 
 const trueFunction = (x: number) => 1.5 * x - 2 + Math.sin(x * 2);
@@ -71,16 +71,16 @@ const GradientBoostingSimulation = () => {
                 </div>
                  <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
-                        <LineChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <ScatterChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                             <CartesianGrid />
                             <XAxis type="number" dataKey="x" domain={[0, 10]}/>
-                            <YAxis domain={[-5, 15]}/>
+                            <YAxis type="number" dataKey="y" domain={[-5, 15]}/>
                             <Tooltip />
                             <Legend />
                             <Scatter name="Original Data" data={data} fill="hsl(var(--primary))" />
                             <Line type="monotone" dataKey="y" data={chartData.line} stroke="hsl(var(--destructive))" name="Combined Model" strokeWidth={3} dot={false} />
                             {step < models.length -1 && <Scatter name="Residuals to be Corrected" data={chartData.residuals} fill="hsl(var(--muted-foreground))" shape="cross" />}
-                        </LineChart>
+                        </ScatterChart>
                     </ResponsiveContainer>
                 </div>
                 <p className="text-center text-sm text-muted-foreground mt-2">

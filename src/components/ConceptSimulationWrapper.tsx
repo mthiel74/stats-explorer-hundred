@@ -1,3 +1,4 @@
+
 import React from 'react';
 import CentralLimitTheoremSimulation from '@/components/CentralLimitTheoremSimulation';
 import CorrelationSimulation from '@/components/CorrelationSimulation';
@@ -45,6 +46,11 @@ import RandomForestSimulation from './RandomForestSimulation';
 import GradientBoostingSimulation from './GradientBoostingSimulation';
 import FeatureEngineeringSimulation from './FeatureEngineeringSimulation';
 import ReinforcementLearningSimulation from './ReinforcementLearningSimulation';
+import ConvolutionalNeuralNetworkSimulation from './ConvolutionalNeuralNetworkSimulation';
+import ArtificialNeuralNetworkSimulation from './ArtificialNeuralNetworkSimulation';
+import RecurrentNeuralNetworkSimulation from './RecurrentNeuralNetworkSimulation';
+import DeepLearningSimulation from './DeepLearningSimulation';
+
 
 const simulationMap: Record<string, React.ComponentType> = {
     'central-limit-theorem': CentralLimitTheoremSimulation,
@@ -109,6 +115,13 @@ const simulationMap: Record<string, React.ComponentType> = {
     'gradient-boosting': GradientBoostingSimulation,
     'feature-engineering': FeatureEngineeringSimulation,
     'reinforcement-learning': ReinforcementLearningSimulation,
+    'convolutional-neural-network': ConvolutionalNeuralNetworkSimulation,
+    'cnn': ConvolutionalNeuralNetworkSimulation,
+    'artificial-neural-network': ArtificialNeuralNetworkSimulation,
+    'ann': ArtificialNeuralNetworkSimulation,
+    'recurrent-neural-network': RecurrentNeuralNetworkSimulation,
+    'rnn': RecurrentNeuralNetworkSimulation,
+    'deep-learning': DeepLearningSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
