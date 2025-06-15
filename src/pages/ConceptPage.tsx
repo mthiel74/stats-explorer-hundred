@@ -39,6 +39,10 @@ import TTestSimulation from '@/components/TTestSimulation';
 import FTestSimulation from '@/components/FTestSimulation';
 import VarianceSimulation from '@/components/VarianceSimulation';
 import BiasSimulation from '@/components/BiasSimulation';
+import CovarianceSimulation from '@/components/CovarianceSimulation';
+import BayesTheoremSimulation from '@/components/BayesTheoremSimulation';
+import CrossValidationSimulation from '@/components/CrossValidationSimulation';
+import OverfittingUnderfittingSimulation from '@/components/OverfittingUnderfittingSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -319,6 +323,34 @@ const ConceptPage = () => {
                   <section>
                     <SimulationHeader title="Interactive Simulation" subtitle="Exploring Data Variance" />
                     <VarianceSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'covariance' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Covariance" />
+                    <CovarianceSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'bayes-theorem' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Bayes' Theorem" />
+                    <BayesTheoremSimulation />
+                  </section>
+                )}
+
+                {concept.id === 'cross-validation' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Cross-Validation" />
+                    <CrossValidationSimulation />
+                  </section>
+                )}
+
+                {(concept.id === 'overfitting' || concept.id === 'underfitting' || concept.id === 'overfitting-and-underfitting') && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Overfitting and Underfitting" />
+                    <OverfittingUnderfittingSimulation />
                   </section>
                 )}
             </div>

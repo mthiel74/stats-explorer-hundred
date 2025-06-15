@@ -80,18 +80,25 @@ const BiasSimulation = () => {
                     }
                 </CardHeader>
                 <CardContent>
-                    <ResponsiveContainer width="100%" height={250}>
-                        <BarChart data={binnedData} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis type="number" dataKey="value" domain={[POPULATION_MEAN - 2*POPULATION_STD_DEV, POPULATION_MEAN + 2*POPULATION_STD_DEV]}/>
-                            <YAxis allowDecimals={false} />
-                            <Tooltip />
-                            <Bar dataKey="count" fill={color} />
-                            <ReferenceLine x={POPULATION_MEAN} stroke="hsl(var(--destructive))" strokeWidth={2}>
-                                <Label value="Pop. Mean" position="top" fill="hsl(var(--destructive))"/>
-                            </ReferenceLine>
-                        </BarChart>
-                    </ResponsiveContainer>
+                    {means.length > 0 ? (
+                        <ResponsiveContainer width="100%" height={250}>
+                            <BarChart data={binnedData} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis type="number" dataKey="value" domain={[POPULATION_MEAN - 2*POPULATION_STD_DEV, POPULATION_MEAN + 2*POPULATION_STD_DEV]}/>
+                                <YAxis allowDecimals={false} />
+                                <Tooltip />
+                                <Bar dataKey="count" fill={color} />
+                                <ReferenceLine x={POPULATION_MEAN} stroke="hsl(var(--destructive))" strokeWidth={2}>
+                                    <Label value="Pop. Mean" position="top" fill="hsl(var(--destructive))"/>
+                                </ReferenceLine>
+                            </BarChart>
+                        </ResponsiveContainer>
+                    ) : (
+                        <div className="flex h-[250px] flex-col items-center justify-center text-center text-muted-foreground">
+                            <p className="font-semibold">No data yet.</p>
+                            <p className="text-sm">Click a "Draw Sample" button above to generate data for this chart.</p>
+                        </div>
+                    )}
                 </CardContent>
             </Card>
         );
