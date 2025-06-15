@@ -81,7 +81,7 @@ const HypothesisTestingSimulation = () => {
                 <CardDescription>
                   We want to test if a new potion increases griffin flight speed.
                   <br /><strong>H₀ (Null):</strong> Speed ≤ 100 km/h.
-                  <br /><strong>H₁ (Alternative):</strong> Speed > 100 km/h.
+                  <br /><strong>H₁ (Alternative):</strong> Speed &gt; 100 km/h.
                 </CardDescription>
               </CardHeader>
             </Card>
