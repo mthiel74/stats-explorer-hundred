@@ -88,6 +88,12 @@ import LikelihoodRatioTestSimulation from './LikelihoodRatioTestSimulation';
 import ModelSelectionCriteriaSimulation from './ModelSelectionCriteriaSimulation';
 import MulticollinearitySimulation from './MulticollinearitySimulation';
 import HomoscedasticitySimulation from './HomoscedasticitySimulation';
+import CramersVSimulation from './CramersVSimulation';
+import PhiCoefficientSimulation from './PhiCoefficientSimulation';
+import PointBiserialCorrelationSimulation from './PointBiserialCorrelationSimulation';
+import RobustStatisticsSimulation from './RobustStatisticsSimulation';
+import WinsorizingSimulation from './WinsorizingSimulation';
+import TrimmingSimulation from './TrimmingSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -207,6 +213,13 @@ const simulationMap: Record<string, React.ComponentType> = {
     'multicollinearity': MulticollinearitySimulation,
     'homoscedasticity': HomoscedasticitySimulation,
     'heteroscedasticity': HomoscedasticitySimulation,
+    'cramers-v': CramersVSimulation,
+    'phi-coefficient': PhiCoefficientSimulation,
+    'point-biserial-correlation': PointBiserialCorrelationSimulation,
+    'robust-statistics': RobustStatisticsSimulation,
+    'winsorizing': WinsorizingSimulation,
+    'trimming': TrimmingSimulation,
+    'truncating': TrimmingSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
