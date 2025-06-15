@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -14,6 +13,9 @@ import BayesianInferenceSimulation from '@/components/BayesianInferenceSimulatio
 import ABTestingSimulation from '@/components/ABTestingSimulation';
 import MCMCSimulation from '@/components/MCMCSimulation';
 import StandardDeviationSimulation from '@/components/StandardDeviationSimulation';
+import PValueSimulation from '@/components/PValueSimulation';
+import TypeErrorsSimulation from '@/components/TypeErrorsSimulation';
+import LawOfLargeNumbersSimulation from '@/components/LawOfLargeNumbersSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -62,6 +64,36 @@ const ConceptPage = () => {
               <p className="text-muted-foreground">An "Animalistic" look at Hypothesis Testing</p>
             </div>
             <HypothesisTestingSimulation />
+          </section>
+        )}
+
+        {concept.id === 'p-value' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">A "Judgemental" look at p-values</p>
+            </div>
+            <PValueSimulation />
+          </section>
+        )}
+
+        {concept.id === 'type-i-and-type-ii-errors' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">The Oracle's Dilemma of Type I & II Errors</p>
+            </div>
+            <TypeErrorsSimulation />
+          </section>
+        )}
+
+        {concept.id === 'law-of-large-numbers' && (
+          <section className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+              <p className="text-muted-foreground">A "Draconic" look at the Law of Large Numbers</p>
+            </div>
+            <LawOfLargeNumbersSimulation />
           </section>
         )}
 
