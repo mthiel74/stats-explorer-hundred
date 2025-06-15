@@ -30,6 +30,7 @@ import TimeSeriesAnalysisSimulation from '@/components/TimeSeriesAnalysisSimulat
 import LogisticRegressionSimulation from '@/components/LogisticRegressionSimulation';
 import MachineLearningSimulation from '@/components/MachineLearningSimulation';
 import SamplingSimulation from '@/components/SamplingSimulation';
+import FactorAnalysisSimulation from '@/components/FactorAnalysisSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -328,6 +329,16 @@ const ConceptPage = () => {
                     <p className="text-muted-foreground">The Oracle's Chronometer (Time Series Analysis)</p>
                 </div>
                 <TimeSeriesAnalysisSimulation />
+            </section>
+        )}
+
+        {concept.id === 'factor-analysis' && (
+            <section className="max-w-5xl mx-auto mt-16">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold">Interactive Simulation</h2>
+                    <p className="text-muted-foreground">The Alchemist's Essence (Factor Analysis)</p>
+                </div>
+                <FactorAnalysisSimulation />
             </section>
         )}
       </main>

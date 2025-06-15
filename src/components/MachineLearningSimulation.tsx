@@ -24,6 +24,32 @@ const unsupervisedData = [
 const MachineLearningSimulation = () => {
     const [isTrained, setIsTrained] = useState(false);
     const [isClustered, setIsClustered] = useState(false);
+    const [isTraining, setIsTraining] = useState(false);
+    const [isClustering, setIsClustering] = useState(false);
+
+    const handleTrainClick = () => {
+        if (isTrained) {
+            setIsTrained(false);
+        } else {
+            setIsTraining(true);
+            setTimeout(() => {
+                setIsTrained(true);
+                setIsTraining(false);
+            }, 800);
+        }
+    };
+
+    const handleClusterClick = () => {
+        if (isClustered) {
+            setIsClustered(false);
+        } else {
+            setIsClustering(true);
+            setTimeout(() => {
+                setIsClustered(true);
+                setIsClustering(false);
+            }, 800);
+        }
+    };
 
   return (
     <Card>
@@ -52,7 +78,7 @@ const MachineLearningSimulation = () => {
                   ))}
                   {isTrained && <div className="absolute top-1/2 left-0 w-full h-px bg-gray-400 origin-left animate-scale-in" style={{ transform: 'rotate(-35deg) scaleX(1.2)' }} />}
                   <div className="absolute bottom-4 right-4">
-                    <Button onClick={() => setIsTrained(!isTrained)}><Settings className="mr-2 h-4 w-4" /> {isTrained ? "Reset Model" : "Train Model"}</Button>
+                    <Button onClick={handleTrainClick} disabled={isTraining}><Settings className="mr-2 h-4 w-4" /> {isTraining ? 'Training...' : (isTrained ? "Reset Model" : "Train Model")}</Button>
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-muted-foreground">In supervised learning, we provide the algorithm with data that is already labeled with the correct outcome. The model learns the relationship between the features and the labels to make predictions on new, unlabeled data.</p>
@@ -79,7 +105,7 @@ const MachineLearningSimulation = () => {
                       </>
                   )}
                   <div className="absolute bottom-4 right-4">
-                    <Button onClick={() => setIsClustered(!isClustered)}><Settings className="mr-2 h-4 w-4" /> {isClustered ? "Reset" : "Find Clusters"}</Button>
+                    <Button onClick={handleClusterClick} disabled={isClustering}><Settings className="mr-2 h-4 w-4" /> {isClustering ? 'Clustering...' : (isClustered ? "Reset" : "Find Clusters")}</Button>
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-muted-foreground">In unsupervised learning, the algorithm is given data without any labels and must find structure on its own. Clustering is a common task, where the goal is to group similar data points together.</p>
