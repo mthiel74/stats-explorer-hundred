@@ -528,6 +528,239 @@ It is used in various fields such as econometrics, signal processing, and weathe
     title: "ETL (Extract, Transform, Load)",
     summary: "A type of data integration used to blend data from multiple sources.",
     description: `In computing, extract, transform, load (ETL) is a three-phase data integration process in which data is extracted from a source system, transformed into a different format, and then loaded into a data warehousing system. The ETL process is often used to prepare data for analysis and business intelligence applications.`
+  },
+  {
+    id: "bayesian-networks",
+    title: "Bayesian Networks",
+    summary: "A probabilistic model representing variables and their conditional dependencies via a graph.",
+    description: "A Bayesian network is a probabilistic graphical model that represents a set of variables and their conditional dependencies via a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases."
+  },
+  {
+    id: "mcmc",
+    title: "Markov Chain Monte Carlo (MCMC)",
+    summary: "A class of algorithms for sampling from a probability distribution.",
+    description: "Markov chain Monte Carlo (MCMC) methods comprise a class of algorithms for sampling from a probability distribution. By constructing a Markov chain that has the desired distribution as its equilibrium distribution, one can obtain a sample of the desired distribution by recording states from the chain. The more steps that are included, the more closely the distribution of the sample matches the actual desired distribution."
+  },
+  {
+    id: "gibbs-sampling",
+    title: "Gibbs Sampling",
+    summary: "An MCMC algorithm for obtaining a sequence of observations from a multivariate distribution.",
+    description: "In statistics, Gibbs sampling is a Markov chain Monte Carlo (MCMC) algorithm for obtaining a sequence of observations which are approximated from a specified multivariate probability distribution, when direct sampling is difficult. This sequence can be used to approximate the joint distribution or to compute an integral."
+  },
+  {
+    id: "metropolis-hastings-algorithm",
+    title: "Metropolis-Hastings Algorithm",
+    summary: "An MCMC method for obtaining random samples from a probability distribution.",
+    description: "The Metropolis–Hastings algorithm is an MCMC method for obtaining a sequence of random samples from a probability distribution for which direct sampling is difficult. This sequence can be used to approximate the distribution or to compute an integral. It is widely used for sampling from multi-dimensional distributions."
+  },
+  {
+    id: "hidden-markov-model",
+    title: "Hidden Markov Model (HMM)",
+    summary: "A statistical model with unobserved (hidden) states.",
+    description: "A Hidden Markov Model (HMM) is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (hidden) states. HMMs are known for their application in temporal pattern recognition such as speech, handwriting, gesture recognition, part-of-speech tagging, musical score following, and bioinformatics."
+  },
+  {
+    id: "kalman-filter",
+    title: "Kalman Filter",
+    summary: "An algorithm that estimates unknown variables from measurements observed over time.",
+    description: "The Kalman filter is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone. It is extensively used in guidance, navigation, and control of vehicles, particularly aircraft, spacecraft and dynamically positioned ships."
+  },
+  {
+    id: "autoregressive-model",
+    title: "Autoregressive (AR) Model",
+    summary: "A model representing a type of random process used for time-series analysis.",
+    description: "An autoregressive (AR) model is a representation of a type of random process; as such, it is used to describe certain time-varying processes in nature, economics, etc. The autoregressive model specifies that the output variable depends linearly on its own previous values and on a stochastic term (an imperfectly predictable term)."
+  },
+  {
+    id: "moving-average-model",
+    title: "Moving-Average (MA) Model",
+    summary: "A common approach for modeling univariate time series.",
+    description: "In time series analysis, the moving-average (MA) model is a common approach for modeling univariate time series. The moving-average model specifies that the output variable depends linearly on the current and various past values of a stochastic (imperfectly predictable) term."
+  },
+  {
+    id: "arma-model",
+    title: "ARMA Model",
+    summary: "A model that describes a stationary stochastic process in terms of two polynomials.",
+    description: "An AutoRegressive Moving-Average (ARMA) model provides a parsimonious description of a (weakly) stationary stochastic process in terms of two polynomials, one for the auto-regression and the second for the moving average. It's a key tool in time series analysis."
+  },
+  {
+    id: "arima-model",
+    title: "ARIMA Model",
+    summary: "A generalization of an ARMA model used for forecasting time series data.",
+    description: "An autoregressive integrated moving average (ARIMA) model is a generalization of an autoregressive moving average (ARMA) model. Both of these models are fitted to time series data either to better understand the data or to predict future points in the series (forecasting). ARIMA models are applied in some cases where data show evidence of non-stationarity."
+  },
+  {
+    id: "garch-model",
+    title: "GARCH Model",
+    summary: "A statistical model used in financial econometrics to estimate volatility.",
+    description: "In econometrics, the generalized autoregressive conditional heteroskedasticity (GARCH) model is a statistical model used in financial econometrics to estimate volatility. GARCH models are used to model financial time series that exhibit time-varying volatility clustering, i.e., periods of swings interspersed with periods of relative calm."
+  },
+  {
+    id: "exponential-smoothing",
+    title: "Exponential Smoothing",
+    summary: "A technique for smoothing time series data using an exponential window function.",
+    description: "Exponential smoothing is a rule of thumb technique for smoothing time series data using the exponential window function. Whereas in the simple moving average the past observations are weighted equally, exponential functions are used to assign exponentially decreasing weights over time."
+  },
+  {
+    id: "spline-regression",
+    title: "Spline Regression",
+    summary: "A nonparametric regression technique that fits piecewise polynomials to data.",
+    description: "Spline regression is a nonparametric regression technique. In this method, the data is divided into smaller pieces (intervals) and a polynomial function is fitted to each piece. This provides a more flexible way to model non-linear relationships compared to traditional polynomial regression."
+  },
+  {
+    id: "kernel-density-estimation",
+    title: "Kernel Density Estimation (KDE)",
+    summary: "A non-parametric way to estimate the probability density function of a random variable.",
+    description: "In statistics, kernel density estimation (KDE) is a non-parametric way to estimate the probability density function (PDF) of a random variable. Kernel density estimation is a fundamental data smoothing problem where inferences about the population are made, based on a finite data sample."
+  },
+  {
+    id: "non-parametric-statistics",
+    title: "Non-parametric Statistics",
+    summary: "Statistics not based on parameterized families of probability distributions.",
+    description: "Non-parametric statistics is the branch of statistics that is not based on parameterized families of probability distributions. It includes both descriptive and inferential statistics. The typical parameters are the mean, variance, etc. Unlike parametric statistics, non-parametric statistics make no assumptions about the probability distributions of the variables being assessed."
+  },
+  {
+    id: "parametric-statistics",
+    title: "Parametric Statistics",
+    summary: "Statistics that assume data comes from a distribution that can be parameterized.",
+    description: "Parametric statistics is a branch of statistics which assumes that sample data comes from a population that can be adequately modeled by a probability distribution that has a fixed set of parameters. Most well-known elementary statistical methods are parametric."
+  },
+  {
+    id: "likelihood-ratio-test",
+    title: "Likelihood-Ratio Test",
+    summary: "A statistical test for comparing the goodness of fit of two nested models.",
+    description: "A likelihood-ratio test is a statistical test used for comparing the goodness of fit of two statistical models—a null model against an alternative model. The test is based on the likelihood ratio, which expresses how many times more likely the data are under one model than the other."
+  },
+  {
+    id: "akaike-information-criterion",
+    title: "Akaike Information Criterion (AIC)",
+    summary: "An estimator of the relative quality of statistical models for a given set of data.",
+    description: "The Akaike information criterion (AIC) is an estimator of prediction error and thereby relative quality of statistical models for a given set of data. Given a collection of models for the data, AIC estimates the quality of each model, relative to each of the other models. Thus, AIC provides a means for model selection."
+  },
+  {
+    id: "bayesian-information-criterion",
+    title: "Bayesian Information Criterion (BIC)",
+    summary: "A criterion for model selection among a finite set of models.",
+    description: "In statistics, the Bayesian information criterion (BIC) or Schwarz information criterion is a criterion for model selection among a finite set of models; the model with the lowest BIC is preferred. It is based, in part, on the likelihood function and it is closely related to the Akaike information criterion (AIC)."
+  },
+  {
+    id: "multicollinearity",
+    title: "Multicollinearity",
+    summary: "When one predictor variable in a regression model can be linearly predicted from others.",
+    description: "Multicollinearity is a phenomenon in which one predictor variable in a multiple regression model can be linearly predicted from the others with a substantial degree of accuracy. In this situation, the coefficient estimates of the multiple regression may change erratically in response to small changes in the model or the data."
+  },
+  {
+    id: "homoscedasticity",
+    title: "Homoscedasticity",
+    summary: "When all random variables in a sequence have the same finite variance.",
+    description: "In statistics, a sequence or a vector of random variables is homoscedastic if all its random variables have the same finite variance. This is also known as homogeneity of variance. The complementary notion is called heteroscedasticity. The assumption of homoscedasticity simplifies mathematical and computational treatment."
+  },
+  {
+    id: "heteroscedasticity",
+    title: "Heteroscedasticity",
+    summary: "When the variability of a variable is unequal across the range of values of a second variable.",
+    description: "In statistics, heteroscedasticity (or heteroskedasticity) happens when the standard deviations of a predicted variable, monitored over different values of an independent variable or a set of independent variables, are non-constant. With heteroscedasticity, the tell-tale sign is that the residuals will tend to fan out over time."
+  },
+  {
+    id: "cramers-v",
+    title: "Cramér's V",
+    summary: "A measure of association between two nominal variables.",
+    description: "In statistics, Cramér's V (sometimes referred to as Cramér's phi and denoted as φc) is a measure of association between two nominal variables, giving a value between 0 and +1. It is based on Pearson's chi-squared statistic and was published by Harald Cramér in 1946."
+  },
+  {
+    id: "phi-coefficient",
+    title: "Phi Coefficient",
+    summary: "A measure of association for two binary variables.",
+    description: "In statistics, the phi coefficient (or mean square contingency coefficient) is a measure of association for two binary variables. Introduced by Karl Pearson, this measure is similar to the Pearson correlation coefficient in its interpretation."
+  },
+  {
+    id: "point-biserial-correlation",
+    title: "Point-Biserial Correlation",
+    summary: "A correlation coefficient used when one variable is dichotomous.",
+    description: "The point-biserial correlation coefficient is a correlation coefficient used when one variable (e.g. Y) is dichotomous; Y can be 'naturally' dichotomous, like whether a coin lands heads or tails, or an artificially dichotomized variable. In most situations, it is not advisable to dichotomize variables."
+  },
+  {
+    id: "robust-statistics",
+    title: "Robust Statistics",
+    summary: "Statistical methods that are not unduly affected by outliers.",
+    description: "Robust statistics are statistics with good performance for data drawn from a wide range of probability distributions, especially for distributions that are not normal. Robust statistical methods have been developed for many common problems, such as estimating location, scale, and regression parameters."
+  },
+  {
+    id: "winsorizing",
+    title: "Winsorizing",
+    summary: "Limiting extreme values in data to reduce the effect of outliers.",
+    description: "Winsorizing or winsorization is the transformation of statistics by limiting extreme values in the statistical data to reduce the effect of possibly spurious outliers. The distribution of an observation is called a Winsorized distribution. The name is a reference to the engineer-turned-biostatistician Charles P. Winsor."
+  },
+  {
+    id: "trimming",
+    title: "Trimming/Truncating",
+    summary: "Removing a percentage of the largest and smallest observations.",
+    description: "Trimming or truncating data involves removing a certain percentage of the largest and smallest observations from a dataset before calculating a statistic. For example, a trimmed mean is the mean calculated after discarding a certain number of highest and lowest scores."
+  },
+  {
+    id: "survival-function",
+    title: "Survival Function",
+    summary: "A function giving the probability that an object of interest will survive beyond a specified time.",
+    description: "The survival function is a function that gives the probability that a patient, device, or other object of interest will survive beyond a specified time. The survival function is also known as the survivor function or reliability function. It is a key concept in survival analysis."
+  },
+  {
+    id: "hazard-function",
+    title: "Hazard Function",
+    summary: "The instantaneous rate of an event, given survival up to that time.",
+    description: "In survival analysis, the hazard function or hazard rate gives the instantaneous rate of occurrence for an event at a particular time t, given that the individual has survived up to time t. It represents the risk of the event happening at that moment."
+  },
+  {
+    id: "proportional-hazards-model",
+    title: "Proportional Hazards Model (Cox Model)",
+    summary: "A class of survival models in statistics for modeling hazard rates.",
+    description: "The Cox proportional-hazards model is a statistical survival model which relates the hazard rate to a set of covariates. It is widely used in medical research to investigate the relationship between the survival time of patients and one or more predictor variables."
+  },
+  {
+    id: "propensity-score-matching",
+    title: "Propensity Score Matching",
+    summary: "A technique to estimate the effect of a treatment by accounting for covariates.",
+    description: "Propensity score matching is a statistical matching technique that attempts to estimate the effect of a treatment, policy, or other intervention by accounting for the covariates that predict receiving the treatment. It's used to reduce selection bias in observational studies."
+  },
+  {
+    id: "instrumental-variable",
+    title: "Instrumental Variable (IV)",
+    summary: "A method to estimate causal relationships when controlled experiments are not feasible.",
+    description: "In statistics, econometrics, epidemiology and related disciplines, the method of instrumental variables (IV) is used to estimate causal relationships when controlled experiments are not feasible or when a treatment is not successfully delivered to every unit in a randomized experiment."
+  },
+  {
+    id: "difference-in-differences",
+    title: "Difference-in-Differences (DiD)",
+    summary: "A statistical technique to mimic an experimental research design using observational data.",
+    description: "Difference-in-differences (DiD) is a statistical technique used in econometrics and quantitative research that attempts to mimic an experimental research design using observational study data, by studying the differential effect of a specific treatment on a 'treatment group' versus a 'control group' in a natural experiment."
+  },
+  {
+    id: "regression-discontinuity-design",
+    title: "Regression Discontinuity Design (RDD)",
+    summary: "A quasi-experimental design to elicit causal effects of interventions.",
+    description: "Regression discontinuity design (RDD) is a quasi-experimental pretest-posttest design that elicits the causal effects of interventions by assigning a cutoff or threshold above or below which an intervention is assigned. By comparing observations lying closely on either side of the threshold, it is possible to estimate the average treatment effect."
+  },
+  {
+    id: "mediation-analysis",
+    title: "Mediation Analysis",
+    summary: "A method to understand the mechanism through which one variable influences another.",
+    description: "Mediation analysis is a statistical method used to understand the mechanism or process through which an independent variable influences a dependent variable. It seeks to identify and explain the mechanism or process that underlies an observed relationship between an independent variable and a dependent variable via the inclusion of a third hypothetical variable, known as a mediator variable."
+  },
+  {
+    id: "moderation-analysis",
+    title: "Moderation Analysis",
+    summary: "A method to determine if the relationship between two variables depends on a third variable.",
+    description: "In statistics and regression analysis, moderation occurs when the relationship between two variables depends on a third variable. The third variable is referred to as the moderator variable or simply the moderator. The effect of a moderating variable is characterized statistically as an interaction."
+  },
+  {
+    id: "structural-equation-modeling",
+    title: "Structural Equation Modeling (SEM)",
+    summary: "A statistical methodology for testing and estimating causal relations using a combination of statistical data and qualitative causal assumptions.",
+    description: "Structural equation modeling (SEM) is a diverse set of mathematical models, computer algorithms, and statistical methods that fit networks of constructs to data. SEM includes many other analysis methods as special cases, including regression, factor analysis, and path analysis."
+  },
+  {
+    id: "path-analysis",
+    title: "Path Analysis",
+    summary: "A method to evaluate causal models by examining relationships between variables.",
+    description: "Path analysis is a statistical technique used to examine the relationships among a set of variables. It is an extension of multiple regression that allows for the modeling of more complex relationships, including direct and indirect effects. It is a special case of structural equation modeling."
   }
 ];
-
