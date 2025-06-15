@@ -64,6 +64,11 @@ import FriedmanTestSimulation from './FriedmanTestSimulation';
 import ShapiroWilkTestSimulation from './ShapiroWilkTestSimulation';
 import LevenesTestSimulation from './LevenesTestSimulation';
 import KolmogorovSmirnovTestSimulation from './KolmogorovSmirnovTestSimulation';
+import MannWhitneyUTestSimulation from './MannWhitneyUTestSimulation';
+import WilcoxonSignedRankTestSimulation from './WilcoxonSignedRankTestSimulation';
+import BartlettsTestSimulation from './BartlettsTestSimulation';
+import OutlierDetectionSimulation from './OutlierDetectionSimulation';
+import ImputationSimulation from './ImputationSimulation';
 
 
 const simulationMap: Record<string, React.ComponentType> = {
@@ -155,6 +160,11 @@ const simulationMap: Record<string, React.ComponentType> = {
     'shapiro-wilk-test': ShapiroWilkTestSimulation,
     'levenes-test': LevenesTestSimulation,
     'kolmogorov-smirnov-test': KolmogorovSmirnovTestSimulation,
+    'mann-whitney-u-test': MannWhitneyUTestSimulation,
+    'wilcoxon-signed-rank-test': WilcoxonSignedRankTestSimulation,
+    'bartletts-test': BartlettsTestSimulation,
+    'outlier-detection': OutlierDetectionSimulation,
+    'imputation': ImputationSimulation,
 };
 
 const SimulationHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
