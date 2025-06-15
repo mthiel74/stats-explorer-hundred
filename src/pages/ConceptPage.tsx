@@ -1,3 +1,4 @@
+
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -36,6 +37,8 @@ import SurvivalAnalysisSimulation from '@/components/SurvivalAnalysisSimulation'
 import ZScoreSimulation from '@/components/ZScoreSimulation';
 import TTestSimulation from '@/components/TTestSimulation';
 import FTestSimulation from '@/components/FTestSimulation';
+import VarianceSimulation from '@/components/VarianceSimulation';
+import BiasSimulation from '@/components/BiasSimulation';
 
 const ConceptPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -293,8 +296,29 @@ const ConceptPage = () => {
 
                 {concept.id === 'f-test' && (
                   <section>
-                    <SimulationHeader title="Interactive Simulation" subtitle="A 'Variance' view on the F-Test" />
+                    <SimulationHeader title="A 'Variance' view on the F-Test" subtitle="A 'Variance' view on the F-Test" />
                     <FTestSimulation />
+                  </section>
+                )}
+
+                {(concept.id === 'effect-size' || concept.id === 'statistical-power') && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Effect Size, Power, and Errors" />
+                    <TypeErrorsSimulation />
+                  </section>
+                )}
+                
+                {concept.id === 'statistical-bias' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Understanding Sampling Bias" />
+                    <BiasSimulation />
+                  </section>
+                )}
+                
+                {concept.id === 'variance' && (
+                  <section>
+                    <SimulationHeader title="Interactive Simulation" subtitle="Exploring Data Variance" />
+                    <VarianceSimulation />
                   </section>
                 )}
             </div>
