@@ -1,10 +1,8 @@
-
 import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Line, ComposedChart } from 'recharts';
-import { GitCommit } from 'lucide-react';
 
 const generateCorrelatedData = (n, meanX, meanY, stdX, stdY, correlation) => {
     const data = [];
@@ -60,48 +58,40 @@ const PCASimulation = () => {
     }, [pcaResult]);
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2"><GitCommit /> Dimensionality Drifter (PCA)</CardTitle>
-                <CardDescription>
-                    Principal Component Analysis finds the directions of greatest variance in data. Generate correlated data and run PCA to find the primary axis (the first principal component).
-                </CardDescription>
-            </CardHeader>
-            <CardContent className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-1 space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+            <div className="lg:col-span-1 space-y-4">
+                 <p className="text-muted-foreground text-sm">Principal Component Analysis finds the directions of greatest variance in data. Generate correlated data and run PCA to find the primary axis (the first principal component).</p>
+                <Card>
+                    <CardContent className="pt-6 space-y-3">
+                        <label className="font-semibold">Data Correlation: {correlation.toFixed(2)}</label>
+                        <Slider defaultValue={[correlation]} max={0.99} min={-0.99} step={0.01} onValueChange={([val]) => setCorrelation(val)} />
+                        <Button onClick={regenerateData} className="w-full">Generate New Data</Button>
+                    </CardContent>
+                </Card>
+                <Button onClick={runPCA} className="w-full">Run PCA</Button>
+                {pcaResult && (
                     <Card>
-                        <CardContent className="pt-6 space-y-3">
-                            <label className="font-semibold">Data Correlation</label>
-                            <Slider defaultValue={[correlation]} max={0.99} min={-0.99} step={0.01} onValueChange={([val]) => setCorrelation(val)} />
-                            <Button onClick={regenerateData} className="w-full">Generate New Data</Button>
+                        <CardContent className="pt-6 text-center">
+                            <p className="text-sm text-muted-foreground">Variance explained by PC1</p>
+                            <p className="text-3xl font-bold">{pcaResult.explainedVariance.toFixed(1)}%</p>
                         </CardContent>
                     </Card>
-                    <Button onClick={runPCA} className="w-full">Run PCA</Button>
-                    {pcaResult && (
-                        <Card>
-                            <CardContent className="pt-6 text-center">
-                                <p className="text-sm text-muted-foreground">Variance explained by PC1</p>
-                                <p className="text-3xl font-bold">{pcaResult.explainedVariance.toFixed(1)}%</p>
-                            </CardContent>
-                        </Card>
-                    )}
-                </div>
-                <div className="lg:col-span-2 min-h-[400px]">
-                    <ResponsiveContainer width="100%" height={400}>
-                        <ComposedChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                            <CartesianGrid />
-                            <XAxis type="number" dataKey="x" domain={[-4, 4]} />
-                            <YAxis type="number" dataKey="y" domain={[-4, 4]} />
-                            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                            <Scatter name="Data" dataKey="x" fill="hsl(var(--primary))" />
-                            {pcaResult && <Line data={pcLine} dataKey="y" stroke="hsl(var(--destructive))" strokeWidth={3} dot={false} legendType="none" />}
-                        </ComposedChart>
-                    </ResponsiveContainer>
-                </div>
-            </CardContent>
-        </Card>
+                )}
+            </div>
+            <div className="lg:col-span-2 min-h-[400px]">
+                <ResponsiveContainer width="100%" height={400}>
+                    <ComposedChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                        <CartesianGrid />
+                        <XAxis type="number" dataKey="x" name="X" domain={[-4, 4]} />
+                        <YAxis type="number" dataKey="y" name="Y" domain={[-4, 4]} />
+                        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                        <Scatter name="Data" dataKey="x" fill="hsl(var(--primary))" />
+                        {pcaResult && <Line data={pcLine} dataKey="y" stroke="hsl(var(--destructive))" strokeWidth={3} dot={false} legendType="none" name="PC1" />}
+                    </ComposedChart>
+                </ResponsiveContainer>
+            </div>
+        </div>
     );
 };
 
 export default PCASimulation;
-

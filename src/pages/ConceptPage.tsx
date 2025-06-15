@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import { concepts } from '@/data/statistical-concepts';
@@ -204,7 +203,7 @@ const ConceptPage = () => {
                     </section>
                 )}
 
-                {concept.id === 'decision-trees' && (
+                {concept.id === 'decision-tree' && (
                     <section>
                         <SimulationHeader title="Interactive Simulation" subtitle="An 'Oracle's Grove' look at Decision Trees" />
                         <DecisionTreesSimulation />
