@@ -11,6 +11,7 @@ import BayesianInferenceSimulation from '@/components/BayesianInferenceSimulatio
 import ABTestingSimulation from '@/components/ABTestingSimulation';
 import MCMCSimulation from '@/components/MCMCSimulation';
 import StandardDeviationSimulation from '@/components/StandardDeviationSimulation';
+import NormalDistributionSimulation from '@/components/NormalDistributionSimulation';
 import PValueSimulation from '@/components/PValueSimulation';
 import TypeErrorsSimulation from '@/components/TypeErrorsSimulation';
 import LawOfLargeNumbersSimulation from '@/components/LawOfLargeNumbersSimulation';
@@ -73,6 +74,7 @@ import DataCleansingSimulation from './DataCleansingSimulation';
 import ETLSimulation from './ETLSimulation';
 import BayesianNetworkSimulation from './BayesianNetworkSimulation';
 import GibbsSamplingSimulation from './GibbsSamplingSimulation';
+import MetropolisHastingsAlgorithmSimulation from './MetropolisHastingsAlgorithmSimulation';
 import HiddenMarkovModelSimulation from './HiddenMarkovModelSimulation';
 import KalmanFilterSimulation from './KalmanFilterSimulation';
 import AutoregressiveModelSimulation from './AutoregressiveModelSimulation';
@@ -127,6 +129,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'ab-testing': ABTestingSimulation,
     'mcmc-methods': MCMCSimulation,
     'monte-carlo-simulation': MCMCSimulation,
+    'normal-distribution': NormalDistributionSimulation,
     'standard-deviation': StandardDeviationSimulation,
     'anova': AnovaSimulation,
     'chi-squared-test': ChiSquaredTestSimulation,
@@ -209,6 +212,7 @@ const simulationMap: Record<string, React.ComponentType> = {
     'bayesian-networks': BayesianNetworkSimulation,
     'mcmc': MCMCSimulation,
     'gibbs-sampling': GibbsSamplingSimulation,
+    'metropolis-hastings-algorithm': MetropolisHastingsAlgorithmSimulation,
     'hidden-markov-model': HiddenMarkovModelSimulation,
     'kalman-filter': KalmanFilterSimulation,
     'autoregressive-model': AutoregressiveModelSimulation,
