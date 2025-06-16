@@ -13,6 +13,10 @@ Stats Explorer Hundred is a React + TypeScript single‑page application created
    npm run dev
    ```
    The site will be available at `http://localhost:5173` by default.
+3. Run the test suite:
+   ```sh
+   npm test
+   ```
 
 To create a production build run `npm run build` and serve the contents of the `dist` directory with any static file server.
 
