@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { toast } from '@/components/ui/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
@@ -30,24 +29,15 @@ const generateGARCHData = (omega: number, alpha: number, beta: number, n: number
     return { returns, volatility };
 };
 
-interface GarchModelSimulationProps {
-    initialOmega?: number;
-    initialAlpha?: number;
-    initialBeta?: number;
-}
-
-const GarchModelSimulation = ({ initialOmega = 0.1, initialAlpha = 0.2, initialBeta = 0.7 }: GarchModelSimulationProps) => {
-    const [omega, setOmega] = useState(initialOmega);
-    const [alpha, setAlpha] = useState(initialAlpha);
-    const [beta, setBeta] = useState(initialBeta);
+const GarchModelSimulation = () => {
+    const [omega, setOmega] = useState(0.1);
+    const [alpha, setAlpha] = useState(0.2);
+    const [beta, setBeta] = useState(0.7);
     const [data, setData] = useState<{ returns: any[], volatility: any[] }>({ returns: [], volatility: [] });
 
     const generate = () => {
         if (alpha + beta >= 1) {
-            toast({
-                description: "Constraint not met: alpha + beta must be less than 1 for a stationary model.",
-                variant: 'destructive'
-            });
+            alert("Constraint not met: alpha + beta must be less than 1 for a stationary model.");
             return;
         }
         const { returns, volatility } = generateGARCHData(omega, alpha, beta, 200);
