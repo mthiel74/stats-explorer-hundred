@@ -26,7 +26,6 @@ To create a production build run `npm run build` and serve the contents of the `
 ## Known Issues
 
 - **Support Vector Machines (SVM)** – the concept entry uses the ID `support-vector-machines` while the component mapping expected `support-vector-machine`. This mismatch prevented the simulation from loading. The mapping has been fixed, but the simulation may still require further tuning.
-- **Overfitting & Underfitting** – this simulation occasionally renders without any data points. Click **New Data Sample** to regenerate the dataset if this occurs.
 
 ## Original Project URL
 

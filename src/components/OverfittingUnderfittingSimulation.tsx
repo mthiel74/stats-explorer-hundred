@@ -97,6 +97,29 @@ const OverfittingUnderfittingSimulation = () => {
         }
         return points;
     }, [fittedFunction]);
+
+    const yDomain = useMemo(() => {
+        const values: number[] = [];
+        if (data.length) {
+            values.push(...data.map((point) => point.y));
+        }
+        if (chartData.length) {
+            values.push(
+                ...chartData.map((point) => point.true),
+                ...chartData.map((point) => point.fitted ?? point.true)
+            );
+        }
+
+        if (values.length === 0) {
+            return [0, 10] as [number, number];
+        }
+
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const padding = Math.max(1, (max - min) * 0.1);
+
+        return [min - padding, max + padding] as [number, number];
+    }, [chartData, data]);
     
     const getModelStatus = () => {
         if(degree < 3) return { text: 'Underfitting', color: 'text-amber-500', Icon: TrendingDown };
@@ -139,10 +162,16 @@ const OverfittingUnderfittingSimulation = () => {
                        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                             <CartesianGrid />
                             <XAxis type="number" dataKey="x" name="Feature" domain={[0, 10]} />
-                            <YAxis type="number" name="Target" domain={[0, 10]} />
+                            <YAxis type="number" name="Target" domain={yDomain} allowDataOverflow />
                             <Tooltip />
                             <Legend />
-                            <Scatter name="Sample Data" data={data} fill="hsl(var(--primary))" />
+                            <Scatter
+                                name="Sample Data"
+                                data={data}
+                                fill="hsl(var(--primary))"
+                                fillOpacity={0.85}
+                                stroke="hsl(var(--primary))"
+                            />
                             <Line dataKey="true" data={chartData} dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
                             <Line dataKey="fitted" data={chartData} dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
                        </ScatterChart>
