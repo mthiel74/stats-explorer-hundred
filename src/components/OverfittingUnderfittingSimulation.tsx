@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { ScatterChart, Scatter, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { ComposedChart, Scatter, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { TrendingUp, TrendingDown, RefreshCw } from 'lucide-react';
 
 // Moved outside the component to prevent re-creation on each render and fix infinite loop.
@@ -97,6 +97,24 @@ const OverfittingUnderfittingSimulation = () => {
         }
         return points;
     }, [fittedFunction]);
+
+    const yDomain = useMemo(() => {
+        const combinedValues = [
+            ...data.map(point => point.y),
+            ...chartData.map(point => point.true),
+            ...chartData.map(point => point.fitted)
+        ];
+
+        if (combinedValues.length === 0) {
+            return ['auto', 'auto'] as const;
+        }
+
+        const min = Math.min(...combinedValues);
+        const max = Math.max(...combinedValues);
+        const padding = (max - min) * 0.1 || 1;
+
+        return [min - padding, max + padding] as const;
+    }, [chartData, data]);
     
     const getModelStatus = () => {
         if(degree < 3) return { text: 'Underfitting', color: 'text-amber-500', Icon: TrendingDown };
@@ -136,16 +154,16 @@ const OverfittingUnderfittingSimulation = () => {
                 </div>
                 <div className="lg:col-span-2 min-h-[400px]">
                     <ResponsiveContainer width="100%" height={400}>
-                       <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                       <ComposedChart data={chartData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                             <CartesianGrid />
                             <XAxis type="number" dataKey="x" name="Feature" domain={[0, 10]} />
-                            <YAxis type="number" name="Target" domain={[0, 10]} />
+                            <YAxis type="number" name="Target" domain={yDomain} allowDataOverflow />
                             <Tooltip />
                             <Legend />
-                            <Scatter name="Sample Data" data={data} fill="hsl(var(--primary))" />
-                            <Line dataKey="true" data={chartData} dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
-                            <Line dataKey="fitted" data={chartData} dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
-                       </ScatterChart>
+                            <Scatter name="Sample Data" data={data} fill="hsl(var(--primary))" shape="circle" />
+                            <Line type="monotone" dataKey="true" dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
+                            <Line type="monotone" dataKey="fitted" dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
+                       </ComposedChart>
                     </ResponsiveContainer>
                 </div>
             </CardContent>
