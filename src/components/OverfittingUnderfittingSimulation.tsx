@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { ScatterChart, Scatter, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { ComposedChart, Scatter, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { TrendingUp, TrendingDown, RefreshCw } from 'lucide-react';
 
 // Moved outside the component to prevent re-creation on each render and fix infinite loop.
@@ -159,7 +159,7 @@ const OverfittingUnderfittingSimulation = () => {
                 </div>
                 <div className="lg:col-span-2 min-h-[400px]">
                     <ResponsiveContainer width="100%" height={400}>
-                       <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                       <ComposedChart data={chartData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                             <CartesianGrid />
                             <XAxis type="number" dataKey="x" name="Feature" domain={[0, 10]} />
                             <YAxis type="number" name="Target" domain={yDomain} allowDataOverflow />
