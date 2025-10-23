@@ -99,21 +99,26 @@ const OverfittingUnderfittingSimulation = () => {
     }, [fittedFunction]);
 
     const yDomain = useMemo(() => {
-        const combinedValues = [
-            ...data.map(point => point.y),
-            ...chartData.map(point => point.true),
-            ...chartData.map(point => point.fitted)
-        ];
-
-        if (combinedValues.length === 0) {
-            return ['auto', 'auto'] as const;
+        const values: number[] = [];
+        if (data.length) {
+            values.push(...data.map((point) => point.y));
+        }
+        if (chartData.length) {
+            values.push(
+                ...chartData.map((point) => point.true),
+                ...chartData.map((point) => point.fitted ?? point.true)
+            );
         }
 
-        const min = Math.min(...combinedValues);
-        const max = Math.max(...combinedValues);
-        const padding = (max - min) * 0.1 || 1;
+        if (values.length === 0) {
+            return [0, 10] as [number, number];
+        }
 
-        return [min - padding, max + padding] as const;
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const padding = Math.max(1, (max - min) * 0.1);
+
+        return [min - padding, max + padding] as [number, number];
     }, [chartData, data]);
     
     const getModelStatus = () => {
@@ -160,10 +165,16 @@ const OverfittingUnderfittingSimulation = () => {
                             <YAxis type="number" name="Target" domain={yDomain} allowDataOverflow />
                             <Tooltip />
                             <Legend />
-                            <Scatter name="Sample Data" data={data} fill="hsl(var(--primary))" shape="circle" />
-                            <Line type="monotone" dataKey="true" dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
-                            <Line type="monotone" dataKey="fitted" dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
-                       </ComposedChart>
+                            <Scatter
+                                name="Sample Data"
+                                data={data}
+                                fill="hsl(var(--primary))"
+                                fillOpacity={0.85}
+                                stroke="hsl(var(--primary))"
+                            />
+                            <Line dataKey="true" data={chartData} dot={false} stroke="hsl(var(--secondary))" strokeWidth={2} name="True Function" />
+                            <Line dataKey="fitted" data={chartData} dot={false} stroke="hsl(var(--destructive))" strokeWidth={3} name="Fitted Model" />
+                       </ScatterChart>
                     </ResponsiveContainer>
                 </div>
             </CardContent>
